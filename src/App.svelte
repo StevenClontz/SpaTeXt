@@ -4,10 +4,10 @@
 	let xmlString=`
 <exercise>
 	<statement>
-		<p>Foo.</p>
+		<p>Foo. <m>x^2+y^2=z^2</m></p>
 	</statement>
 	<answer>
-		<p>Bar.</p>
+		<p>Bar. <em>You see?</em> You should.</p>
 	</answer>
 </exercise>
 `.trim();
@@ -21,11 +21,11 @@
 <main>
 	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+
+	<textarea bind:value={xmlString}/>
+	
+	<Exercise {exerciseDom}/>
 </main>
-
-<textarea bind:value={xmlString}/>
-
-<Exercise {exerciseDom}/>
 
 <style>
 	main {
