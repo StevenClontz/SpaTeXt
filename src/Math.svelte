@@ -1,12 +1,7 @@
 <script lang="ts">
     import katex from 'katex';
     export let latex:string;
+    export let displayMode:boolean;
 </script>
 
-<span class="math">
-    {@html katex.renderToString(latex,{throwOnError:false})}
-</span>
-
-<style>
-    .math {background-color:#efe}
-</style>
+{@html katex.renderToString(latex,{throwOnError:false,displayMode:displayMode})}

@@ -4,10 +4,11 @@
 	let xmlString=`
 <knowl type="exercise">
 	<content>
-		<p>Foo. <m>x^2+y^2=z^2</m></p>
+		<p>Some inline math <m>x^2+y^2=z^2</m>.</p>
+		<p>Some display math <m mode="display">\\sum_{k=0}^n k=\\frac{n(n+1)}{2}</m></p>
 	</content>
 	<outtro>
-		<p>Bar. <em>You see?</em> You should.</p>
+		<p>I guess an answer <em>should</em> go here.</p>
 	</outtro>
 </knowl>
 `.trim();
@@ -21,6 +22,7 @@
 </script>
 
 <main>
+	<h1>SpaTeXt Demo</h1>
 	<div style="overflow:hidden">
 		<div style="width: 48%; float:left">
 			<textarea bind:value={xmlString}/>
