@@ -1,9 +1,8 @@
 <script lang="ts">
     import Paragraph from'./Paragraph.svelte';
-    export let answer:Element;
+    export let content:Element;
 </script>
 
-{#each answer.getElementsByTagName("p") as paragraph}
+{#each content.getElementsByTagName("p") as paragraph}
     <Paragraph {paragraph}/>
 {/each}
-

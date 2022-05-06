@@ -1,11 +1,11 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
+  "name": "spatext",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
+    "start": "HOST=0 sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {

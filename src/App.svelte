@@ -1,30 +1,34 @@
 <script lang="ts">
-	import Exercise from './Exercise.svelte';
-	export let name: string;
+	import Knowl from './Knowl.svelte';
+
 	let xmlString=`
-<exercise>
-	<statement>
+<knowl type="exercise">
+	<content>
 		<p>Foo. <m>x^2+y^2=z^2</m></p>
-	</statement>
-	<answer>
+	</content>
+	<outtro>
 		<p>Bar. <em>You see?</em> You should.</p>
-	</answer>
-</exercise>
+	</outtro>
+</knowl>
 `.trim();
 	const parser = new DOMParser();
-	let exerciseDom = parser.parseFromString(xmlString, "application/xml")
+	let knowlDom = parser.parseFromString(xmlString, "application/xml")
+	let knowl: Element
 	$: if (!parser.parseFromString(xmlString, "application/xml").querySelector('parsererror')) {
-		exerciseDom = parser.parseFromString(xmlString, "application/xml")
+	    knowlDom = parser.parseFromString(xmlString, "application/xml")
+		knowl = knowlDom.getElementsByTagName("knowl")[0]
 	}
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-
-	<textarea bind:value={xmlString}/>
-	
-	<Exercise {exerciseDom}/>
+	<div style="overflow:hidden">
+		<div style="width: 48%; float:left">
+			<textarea bind:value={xmlString}/>
+		</div>
+		<div style="width: 48%; float:right">
+			<Knowl {knowl}/>
+		</div>
+	</div>
 </main>
 
 <style>
@@ -33,13 +37,6 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
 	}
 
 	@media (min-width: 640px) {
