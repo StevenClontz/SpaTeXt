@@ -3,6 +3,6 @@
     export let content:Element;
 </script>
 
-{#each content.getElementsByTagName("p") as paragraph}
+{#each content.querySelectorAll(":scope > p") as paragraph}
     <Paragraph {paragraph}/>
 {/each}

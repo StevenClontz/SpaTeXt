@@ -1,35 +1,17 @@
 <script lang="ts">
     export let knowl:Element;
-    import Content from'./Content.svelte';
-    let showOuttro = false;
+    import Part from './Part.svelte';
 </script>
 
-{#each knowl.getElementsByTagName("content") as content}
-    <div class="content">
-        <Content {content}/>
-        <p>
-            <button on:click={()=>showOuttro=!showOuttro}>
-                {#if showOuttro}
-                    Hide
-                {:else}
-                    Show
-                {/if}
-                outtro
-            </button>
-        </p>
-        {#if showOuttro}
-            {#each knowl.getElementsByTagName("outtro") as content}
-                <hr/>
-                <div class="outtro">
-                    <Content {content}/>
-                </div>
-            {/each}
-        {/if}
-    </div>
-{/each}
+{#if knowl.querySelectorAll(":scope > title").length > 0}
+    <h3>{knowl.querySelector(":scope > title").textContent}</h3>
+{/if}
+<div class="knowl">
+    <Part part={knowl}/>
+</div>
 
 <style>
-    .content {
+    .knowl {
         border-color: rgb(0, 0, 0);
         border-width: 1px;
         border-radius: 5px;

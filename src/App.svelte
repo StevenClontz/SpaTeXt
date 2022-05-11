@@ -2,17 +2,33 @@
     import Knowl from './Knowl.svelte';
 
     let xmlString=`
-<knowl mode="exercise">
-    <content>
-        <p>Some inline math <m>x^2+y^2=z^2</m>.</p>
-        <p>Some display math <m mode="display">\\sum_{k=0}^n k=\\frac{n(n+1)}{2}</m></p>
-        <p>
-Hey check out <url href="https://checkit.clontz.org"><em>CheckIt</em></url>.
-It's at <url href="https://checkit.clontz.org"/>.
-        </p>
+<knowl>
+    <title>An example knowl</title>
+    <intro>
+        <p>So here's the thing.</p>
+    </intro>
+    <part>
+        <content>
+            <p>Some inline math <m>x^2+y^2=z^2</m>.</p>
+            <p>Some display math <m mode="display">\\sum_{k=0}^n k=\\frac{n(n+1)}{2}</m></p>
+            <p>
+    Hey check out <url href="https://checkit.clontz.org"><em>CheckIt</em></url>.
+    It's at <url href="https://checkit.clontz.org"/>.
+            </p>
         </content>
-    <outtro mode="answer">
-        <p>I guess an answer <em>should</em> go here.</p>
+        <outtro>
+            <p>I guess an answer <em>should</em> go here.</p>
+        </outtro>
+    </part>
+    <part>
+        <content>
+            <p>
+This part's short...
+            </p>
+        </content>
+    </part>
+    <outtro>
+        <p>And finally...</p>
     </outtro>
 </knowl>
 `.trim();
@@ -62,7 +78,7 @@ It's at <url href="https://checkit.clontz.org"/>.
 
     textarea {
         width:100%;
-        height:15em;
+        height:30em;
     }
 
     .error {
