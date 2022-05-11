@@ -2,7 +2,7 @@
 	import Knowl from './Knowl.svelte';
 
 	let xmlString=`
-<knowl type="exercise">
+<knowl mode="exercise">
 	<content>
 		<p>Some inline math <m>x^2+y^2=z^2</m>.</p>
 		<p>Some display math <m mode="display">\\sum_{k=0}^n k=\\frac{n(n+1)}{2}</m></p>
@@ -11,7 +11,7 @@ Hey check out <url href="https://checkit.clontz.org"><em>CheckIt</em></url>.
 It's at <url href="https://checkit.clontz.org"/>.
 		</p>
 		</content>
-	<outtro>
+	<outtro mode="answer">
 		<p>I guess an answer <em>should</em> go here.</p>
 	</outtro>
 </knowl>
@@ -43,15 +43,15 @@ It's at <url href="https://checkit.clontz.org"/>.
 
 <style>
 	main {
-		text-align: center;
 		padding: 1em;
 		margin: 0 auto;
 	}
 
+	h1 {
+		text-align: center;
+	}
+
 	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
 		.leftBox {
 			width: 48%; float:left;
 		}
