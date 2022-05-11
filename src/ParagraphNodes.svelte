@@ -1,0 +1,30 @@
+<script lang="ts">
+    import Math from './Math.svelte';
+    export let nodes:NodeList;
+</script>
+
+{#each nodes as node}
+    {#if node.nodeType == Node.TEXT_NODE}
+        {node.textContent}
+    {:else if node instanceof Element}
+        {#if node.nodeName == "m"}
+            <Math latex={node.textContent} displayMode={node.getAttribute('mode')=="display"}/>
+        {:else if node.nodeName == "me"}
+            <Math latex={node.textContent} displayMode/>
+        {:else if node.nodeName == "c"}
+            <code>{node.textContent}</code>
+        {:else if node.nodeName == "em"}
+            <strong><svelte:self nodes={node.childNodes}/></strong>
+        {:else if node.nodeName == "q"}
+            "<svelte:self nodes={node.childNodes}/>"
+        {:else if node.nodeName == "url"}
+            <a href={node.getAttribute("href")}>
+                {#if node.textContent.trim()===''}
+                    {node.getAttribute("href")}
+                {:else}
+                    <svelte:self nodes={node.childNodes}/>
+                {/if}
+            </a>
+        {/if}
+    {/if}
+{/each}
