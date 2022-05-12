@@ -23,7 +23,7 @@
     <part>
         <content>
             <p>
-This part's short...
+Hey let's try an image. <image remote="https://via.placeholder.com" source="150x100"/>
             </p>
         </content>
     </part>

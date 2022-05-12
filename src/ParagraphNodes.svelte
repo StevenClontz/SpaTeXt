@@ -17,6 +17,8 @@
             <strong><svelte:self nodes={node.childNodes}/></strong>
         {:else if node.nodeName == "q"}
             "<svelte:self nodes={node.childNodes}/>"
+        {:else if node.nodeName == "image"}
+            <img src={node.getAttribute('remote')+"/"+node.getAttribute('source')} alt={node.getAttribute('description')}/>
         {:else if node.nodeName == "url"}
             <a href={node.getAttribute("href")}>
                 {#if node.textContent.trim()===''}
