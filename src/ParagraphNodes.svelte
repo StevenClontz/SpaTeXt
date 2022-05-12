@@ -14,7 +14,7 @@
         {:else if node.nodeName == "c"}
             <code>{node.textContent}</code>
         {:else if node.nodeName == "em"}
-            <strong><svelte:self nodes={node.childNodes}/></strong>
+            <em><svelte:self nodes={node.childNodes}/></em>
         {:else if node.nodeName == "q"}
             "<svelte:self nodes={node.childNodes}/>"
         {:else if node.nodeName == "image"}

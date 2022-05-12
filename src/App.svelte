@@ -1,11 +1,28 @@
 <script lang="ts">
-    import Knowl from './Knowl.svelte';
+    import Knowl from './Knowl.svelte'
     // @ts-ignore
-    import exampleStxSource from './xml/example.stx';
-    const parser = new DOMParser();
+    import exampleStxSource from './xml/example.stx'
+    // @ts-ignore
+    import latexXsl from './xml/latex.xsl'
+    // @ts-ignore
+    import htmlXsl from './xml/html.xsl'
+
+    const parser = new DOMParser()
     let exampleStx:string = exampleStxSource
     let knowlDom = parser.parseFromString(exampleStx, "application/xml")
+
+    const latexTransform = new XSLTProcessor()
+    const latexXslDom = parser.parseFromString(latexXsl, "application/xml")
+    latexTransform.importStylesheet(latexXslDom)
+
+    const htmlTransform = new XSLTProcessor()
+    const htmlXslDom = parser.parseFromString(htmlXsl, "application/xml")
+    htmlTransform.importStylesheet(htmlXslDom)
+
+    let rightPane = "result"
     let knowl: Element
+    let latex: string
+    let html: string
     let error: boolean
     let errorText: string
     $: if (parser.parseFromString(exampleStx, "application/xml").querySelector('parsererror')) {
@@ -14,6 +31,8 @@
     } else {
         knowlDom = parser.parseFromString(exampleStx, "application/xml")
         knowl = knowlDom.querySelector(":scope")
+        latex = latexTransform.transformToDocument(knowlDom).querySelector(":scope").textContent.trim()
+        html = htmlTransform.transformToDocument(knowlDom).querySelector("div").outerHTML
         if (
             knowl.tagName!="knowl" ||
             knowl.namespaceURI!="https://spatext.clontz.org" || 
@@ -38,7 +57,22 @@
             {/if}
         </div>
         <div class="rightBox">
-            <Knowl {knowl}/>
+            <p>
+                Show:
+                <a href="#result" on:click|preventDefault={()=>rightPane="result"}>Result</a> |
+                <a href="#html" on:click|preventDefault={()=>rightPane="html"}>Static HTML</a> |
+                <a href="#latex" on:click|preventDefault={()=>rightPane="latex"}>LaTeX</a>
+            </p>
+            {#if rightPane=="result"}
+                <Knowl {knowl}/>
+            {:else if rightPane=="html"}
+                <pre>{html}</pre>
+                <div>
+                    {@html html}
+                </div>
+            {:else if rightPane=="latex"}
+                <pre>{latex}</pre>
+            {/if}
         </div>
     </div>
 </main>

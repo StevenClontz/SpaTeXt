@@ -14,11 +14,13 @@
 {#if part.querySelectorAll(":scope > content").length > 0}
     <Content content={part.querySelector(":scope > content")}/>
 {:else}
-    {#each part.querySelectorAll(":scope > part") as subpart}
-        <div class="part">
-            <svelte:self part={subpart}/>
-        </div>
-    {/each}
+    <ol>
+        {#each part.querySelectorAll(":scope > part") as subpart}
+            <li class="part">
+                <svelte:self part={subpart}/>
+            </li>
+        {/each}
+    </ol>
 {/if}
 {#if part.querySelectorAll(":scope > outtro").length > 0}
     <p>
@@ -37,13 +39,13 @@
 {/if}
 
 <style>
-    .part {
+    /* .part {
         border-left-color: rgb(0, 0, 0);
         border-left-width: 1px;
         border-left-style: solid;
         padding: 5px;
         margin-bottom:1em;
-    }
+    } */
     .toggle {
         color:rgb(100, 100, 100);
         font-size: 0.8em;

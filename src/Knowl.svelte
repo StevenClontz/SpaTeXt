@@ -1,11 +1,14 @@
 <script lang="ts">
     export let knowl:Element;
     import Part from './Part.svelte';
+    import TitleNodes from './TitleNodes.svelte';
 </script>
 
-{#if knowl.querySelectorAll(":scope > title").length > 0}
-    <h3>{knowl.querySelector(":scope > title").textContent}</h3>
-{/if}
+<h3>
+    Knowl{#if knowl.querySelectorAll(":scope > title").length > 0}:
+        <TitleNodes nodes={knowl.querySelector(":scope > title").childNodes}/>
+    {:else}.{/if}
+</h3>
 <div class="knowl">
     <Part part={knowl}/>
 </div>

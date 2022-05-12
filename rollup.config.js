@@ -54,7 +54,7 @@ export default {
 		// read .stx as string
 		string({
 			// Required to be specified
-			include: "**/*.stx",
+			include: ["**/*.stx","**/*.xsl"],
 	
 			// Undefined by default
 			exclude: []
