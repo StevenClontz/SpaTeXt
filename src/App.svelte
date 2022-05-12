@@ -1,18 +1,30 @@
 <script lang="ts">
     import Knowl from './Knowl.svelte';
     // @ts-ignore
-    import exampleStxSource from './example.stx';
+    import exampleStxSource from './xml/example.stx';
     const parser = new DOMParser();
     let exampleStx:string = exampleStxSource
     let knowlDom = parser.parseFromString(exampleStx, "application/xml")
     let knowl: Element
     let error: boolean
-    $: if (!parser.parseFromString(exampleStx, "application/xml").querySelector('parsererror')) {
-        knowlDom = parser.parseFromString(exampleStx, "application/xml")
-        knowl = knowlDom.getElementsByTagName("knowl")[0]
-        error = false
-    } else {
+    let errorText: string
+    $: if (parser.parseFromString(exampleStx, "application/xml").querySelector('parsererror')) {
         error = true
+        errorText = "Error parsing XML"
+    } else {
+        knowlDom = parser.parseFromString(exampleStx, "application/xml")
+        knowl = knowlDom.querySelector(":scope")
+        if (
+            knowl.tagName!="knowl" ||
+            knowl.namespaceURI!="https://spatext.clontz.org" || 
+            knowl.getAttribute("version")!="0.2"
+        ) {
+            error = true
+            errorText = "Root element must be <knowl xmlns=\"https://spatext.clontz.org\" version=\"0.2\">"
+        } else {
+            error = false
+            errorText = ""
+        }
     }
 </script>
 
@@ -21,6 +33,9 @@
     <div style="overflow:hidden">
         <div class="leftBox">
             <textarea bind:value={exampleStx} class:error={error}/>
+            {#if errorText != ""}
+                <p style="color:red">{errorText}</p>
+            {/if}
         </div>
         <div class="rightBox">
             <Knowl {knowl}/>
