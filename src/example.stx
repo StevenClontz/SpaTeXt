@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<knowl>
+    <title>An example knowl</title>
+    <intro>
+        <p>So here's the thing.</p>
+    </intro>
+    <part>
+        <content>
+            <p>Some inline math <m>x^2+y^2=z^2</m>.</p>
+            <p>Some display math <m mode="display">\sum_{k=0}^n k=\frac{n(n+1)}{2}</m></p>
+            <p>
+    Hey check out <url href="https://checkit.clontz.org"><em>CheckIt</em></url>.
+    It's at <url href="https://checkit.clontz.org"/>.
+            </p>
+        </content>
+        <outtro>
+            <p>I guess an answer <em>should</em> go here.</p>
+        </outtro>
+    </part>
+    <part>
+        <content>
+            <p>
+Hey let's try an image. <image remote="https://via.placeholder.com" source="150x100"/>
+            </p>
+        </content>
+    </part>
+    <outtro>
+        <p>And finally... the end!</p>
+    </outtro>
+</knowl>
