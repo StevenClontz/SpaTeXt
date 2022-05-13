@@ -1,11 +1,19 @@
 <script lang="ts">
-    export let knowl:Element;
-    import Part from './Part.svelte';
-    import TitleNodes from './TitleNodes.svelte';
+    export let knowl:Element
+    import Part from './Part.svelte'
+    import TitleNodes from './TitleNodes.svelte'
+    let mode:string
+    let label:string
+    $: mode = knowl.getAttribute("mode")
+    $: if (mode=="exercise") {
+        label = "Exercise"
+    } else {
+        label = "Knowl"
+    }
 </script>
 
 <h3>
-    Knowl{#if knowl.querySelectorAll(":scope > title").length > 0}:
+    {label}{#if knowl.querySelectorAll(":scope > title").length > 0}:
         <TitleNodes nodes={knowl.querySelector(":scope > title").childNodes}/>
     {:else}.{/if}
 </h3>

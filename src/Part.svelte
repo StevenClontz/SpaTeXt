@@ -6,6 +6,17 @@
         e.preventDefault()
         showOuttro=!showOuttro
     }
+    const isInExercise = (p:Element) => {
+        if (p.getAttribute("mode")=="exercise") return true
+        if (p.parentElement!=null && p.parentElement.getAttribute("mode")=="exercise") return true
+        return false
+    }
+    let outtroLabel:string
+    $: if (isInExercise(part)) {
+        outtroLabel = "solution"
+    } else {
+        outtroLabel = "outtro"
+    }
 </script>
 
 {#if part.querySelectorAll(":scope > intro").length > 0}
@@ -30,7 +41,7 @@
             {:else}
                 &blacktriangleright; Show
             {/if}
-            outtro
+            {outtroLabel}
         </a>
     </p>
     {#if showOuttro}
@@ -39,13 +50,6 @@
 {/if}
 
 <style>
-    /* .part {
-        border-left-color: rgb(0, 0, 0);
-        border-left-width: 1px;
-        border-left-style: solid;
-        padding: 5px;
-        margin-bottom:1em;
-    } */
     .toggle {
         color:rgb(100, 100, 100);
         font-size: 0.8em;
