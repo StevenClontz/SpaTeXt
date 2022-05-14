@@ -1,6 +1,6 @@
 <script lang="ts">
+    import Content from './Content.svelte';
     export let part:Element;
-    import Content from'./Content.svelte';
     let showOuttro = false;
     const toggleOuttro = (e:Event) => {
         e.preventDefault()
@@ -17,9 +17,25 @@
     } else {
         outtroLabel = "outtro"
     }
+    const numbering = (p:Element) => {
+        let parentPart = p.parentElement
+        if (p.tagName!="part") {
+            return ""
+        } else {
+            let base = numbering(parentPart)
+            if (base!="") {
+                base = base+"."
+            }
+            let siblings = [...parentPart.querySelectorAll("part")]
+            return base + (siblings.indexOf(p)+1).toString()
+        }
+    }
 </script>
 
-{#if part.querySelectorAll(":scope > intro").length > 0}
+{#if numbering(part)!=""}
+    <h5>Part {numbering(part)}</h5>
+{/if}
+{#if part.querySelector(":scope > intro")!=null}
     <Content content={part.querySelector("intro")}/>
 {/if}
 {#if part.querySelectorAll(":scope > content").length > 0}
@@ -53,5 +69,8 @@
     .toggle {
         color:rgb(100, 100, 100);
         font-size: 0.8em;
+    }
+    ol {
+        list-style: none;
     }
 </style>

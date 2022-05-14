@@ -1,5 +1,8 @@
 <script lang="ts">
-    import Knowl from './Knowl.svelte'
+    import Knowl from './Elements/Knowl.svelte'
+    import Content from './Elements/Content.svelte'
+    import Paragraph from './Elements/Paragraph.svelte'
+    import Part from './Elements/Part.svelte'
     // @ts-ignore
     import exampleStxSource from './xml/example.stx'
     // @ts-ignore
@@ -9,7 +12,7 @@
 
     const parser = new DOMParser()
     let exampleStx:string = exampleStxSource
-    let knowlDom = parser.parseFromString(exampleStx, "application/xml")
+    let stxDom = parser.parseFromString(exampleStx, "application/xml")
 
     const latexTransform = new XSLTProcessor()
     const latexXslDom = parser.parseFromString(latexXsl, "application/xml")
@@ -20,7 +23,7 @@
     htmlTransform.importStylesheet(htmlXslDom)
 
     let rightPane = "result"
-    let knowl: Element
+    let stxElement: Element
     let latex: string
     let html: string
     let error: boolean
@@ -29,17 +32,16 @@
         error = true
         errorText = "Error parsing XML"
     } else {
-        knowlDom = parser.parseFromString(exampleStx, "application/xml")
-        knowl = knowlDom.querySelector(":scope")
-        latex = latexTransform.transformToDocument(knowlDom).querySelector(":scope").textContent.trim()
-        html = htmlTransform.transformToDocument(knowlDom).querySelector("div").outerHTML
+        stxDom = parser.parseFromString(exampleStx, "application/xml")
+        stxElement = stxDom.querySelector(":scope")
+        latex = latexTransform.transformToDocument(stxDom).querySelector(":scope").textContent.trim()
+        html = htmlTransform.transformToDocument(stxDom).querySelector("body > *").outerHTML
         if (
-            knowl.tagName!="knowl" ||
-            knowl.namespaceURI!="https://spatext.clontz.org" || 
-            knowl.getAttribute("version")!="0.2"
+            stxElement.namespaceURI!="https://spatext.clontz.org" || 
+            stxElement.getAttribute("version")!="0.2"
         ) {
             error = true
-            errorText = "Root element must be <knowl xmlns=\"https://spatext.clontz.org\" version=\"0.2\">"
+            errorText = "Root element must have these attributes: xmlns=\"https://spatext.clontz.org\" version=\"0.2\""
         } else {
             error = false
             errorText = ""
@@ -64,7 +66,15 @@
                 <a href="#latex" on:click|preventDefault={()=>rightPane="latex"}>LaTeX</a>
             </p>
             {#if rightPane=="result"}
-                <Knowl {knowl}/>
+                {#if stxElement.tagName == "knowl"}
+                    <Knowl knowl={stxElement}/>
+                {:else if stxElement.tagName == "part"}
+                    <Part part={stxElement}/>
+                {:else if stxElement.tagName == "content"}
+                    <Content content={stxElement}/>
+                {:else if stxElement.tagName == "p"}
+                    <Paragraph paragraph={stxElement}/>
+                {/if}
             {:else if rightPane=="html"}
                 <pre>{html}</pre>
                 <div>

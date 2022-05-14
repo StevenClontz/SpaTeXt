@@ -12,7 +12,7 @@
     <!-- Normalize text() whitespace but don't completely trim beginning or end: https://stackoverflow.com/a/5044657/1607849 -->
     <xsl:template match="text()"><xsl:value-of select="translate(normalize-space(concat('&#x7F;',.,'&#x7F;')),'&#x7F;','')"/></xsl:template>
 
-    <xsl:template match="/">
+    <xsl:template match="stx:knowl">
         <xsl:text>%%%%% SpaTeXt Commands %%%%%</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>\providecommand{\stxKnowl}{}\renewcommand{\stxKnowl}[1]{#1}</xsl:text>
@@ -27,10 +27,6 @@
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>%%%%%%%%%%%%%%%%%%%%%%%%%%%%</xsl:text>
         <xsl:text>&#xa;</xsl:text>
-        <xsl:apply-templates select="stx:knowl"/>
-    </xsl:template>
-
-    <xsl:template match="stx:knowl">
         <xsl:text>\stxKnowl{</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:apply-templates select="stx:title[1]"/>

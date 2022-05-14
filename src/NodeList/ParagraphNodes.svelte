@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Math from './Math.svelte';
+    import Math from '../Elements/Math.svelte';
     export let nodes:NodeList;
 </script>
 

@@ -12,10 +12,6 @@
     <!-- Normalize text() whitespace but don't completely trim beginning or end: https://stackoverflow.com/a/5044657/1607849 -->
     <xsl:template match="text()"><xsl:value-of select="translate(normalize-space(concat('&#x7F;',.,'&#x7F;')),'&#x7F;','')"/></xsl:template>
 
-    <xsl:template match="/">
-        <xsl:apply-templates select="stx:knowl"/>
-    </xsl:template>
-
     <xsl:template match="stx:knowl">
         <div class="stx-knowl">
             <xsl:apply-templates select="stx:title[1]"/>
@@ -51,7 +47,9 @@
     </xsl:template>
 
     <xsl:template match="stx:intro|stx:content">
-        <xsl:apply-templates select="stx:p"/>
+        <div class="stx-content">
+            <xsl:apply-templates select="stx:p"/>
+        </div>
     </xsl:template>
 
     <xsl:template match="stx:outtro">
