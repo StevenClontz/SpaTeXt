@@ -35,8 +35,6 @@
     } else {
         stxDom = parser.parseFromString(exampleStx, "application/xml")
         stxElement = stxDom.querySelector(":scope")
-        latex = latexTransform.transformToDocument(stxDom).querySelector(":scope").textContent.trim()
-        html = htmlTransform.transformToDocument(stxDom).querySelector("body > *").outerHTML
         if (
             stxElement.namespaceURI!="https://spatext.clontz.org" || 
             stxElement.getAttribute("version")!="0.2"
@@ -44,6 +42,8 @@
             error = true
             errorText = "Root element must have these attributes: xmlns=\"https://spatext.clontz.org\" version=\"0.2\""
         } else {
+            latex = latexTransform.transformToDocument(stxDom).querySelector(":scope").textContent.trim()
+            html = htmlTransform.transformToDocument(stxDom).querySelector("body > *")?.outerHTML
             error = false
             errorText = ""
         }
