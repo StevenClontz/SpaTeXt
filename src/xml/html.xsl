@@ -83,6 +83,9 @@
 
     <xsl:template match="stx:m">
         <span class="math inline-math">
+            <xsl:attribute name="data-latex">
+                <xsl:value-of select="normalize-space(text())"/>
+            </xsl:attribute>
             <xsl:text>\(</xsl:text>
             <xsl:value-of select="normalize-space(text())"/>
             <xsl:text>\)</xsl:text>
@@ -90,6 +93,9 @@
     </xsl:template>
     <xsl:template match="stx:m[@mode='display']|stx:me">
         <span class="math display-math">
+            <xsl:attribute name="data-latex">
+                <xsl:value-of select="normalize-space(text())"/>
+            </xsl:attribute>
             <xsl:text>\[</xsl:text>
             <xsl:value-of select="normalize-space(text())"/>
             <xsl:text>\]</xsl:text>
