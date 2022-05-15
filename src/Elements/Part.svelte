@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Content from './Content.svelte';
+    import Content from './KnowlContent.svelte';
     export let part:Element;
     let showOuttro = false;
     const toggleOuttro = (e:Event) => {

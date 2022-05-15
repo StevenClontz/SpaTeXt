@@ -46,9 +46,22 @@
         </h3>
     </xsl:template>
 
-    <xsl:template match="stx:intro|stx:content">
-        <div class="stx-content">
+    <xsl:template match="stx:intro">
+        <div class="stx-intro">
             <xsl:apply-templates select="stx:p"/>
+        </div>
+    </xsl:template>
+
+    <xsl:template match="stx:content">
+        <div class="stx-content">
+            <xsl:choose>
+                <xsl:when test="ancestor::stx:knowl">
+                    <xsl:apply-templates select="stx:p"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="stx:p|stx:knowl"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </div>
     </xsl:template>
 

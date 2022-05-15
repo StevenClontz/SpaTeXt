@@ -1,6 +1,7 @@
 <script lang="ts">
+    import SectionContent from './Elements/SectionContent.svelte'
     import Knowl from './Elements/Knowl.svelte'
-    import Content from './Elements/Content.svelte'
+    import KnowlContent from './Elements/KnowlContent.svelte'
     import Paragraph from './Elements/Paragraph.svelte'
     import Part from './Elements/Part.svelte'
     // @ts-ignore
@@ -47,13 +48,19 @@
             errorText = ""
         }
     }
+    const containsKnowl = (e:Element) => {
+        let children = [...e.childNodes]
+        return children.some((node) => node instanceof Element && node.tagName=="knowl")
+    }
 </script>
 
 <main>
     <h1>SpaTeXt Demo</h1>
     <div style="overflow:hidden">
         <div class="leftBox">
-            <textarea bind:value={exampleStx} class:error={error}/>
+            <p>
+                <textarea bind:value={exampleStx} class:error={error}/>
+            </p>
             {#if errorText != ""}
                 <p style="color:red">{errorText}</p>
             {/if}
@@ -71,7 +78,11 @@
                 {:else if stxElement.tagName == "part"}
                     <Part part={stxElement}/>
                 {:else if stxElement.tagName == "content"}
-                    <Content content={stxElement}/>
+                    {#if containsKnowl(stxElement) }
+                        <SectionContent content={stxElement}/>
+                    {:else}
+                        <KnowlContent content={stxElement}/>
+                    {/if}
                 {:else if stxElement.tagName == "p"}
                     <Paragraph paragraph={stxElement}/>
                 {/if}

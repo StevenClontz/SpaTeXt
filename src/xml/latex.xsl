@@ -12,7 +12,7 @@
     <!-- Normalize text() whitespace but don't completely trim beginning or end: https://stackoverflow.com/a/5044657/1607849 -->
     <xsl:template match="text()"><xsl:value-of select="translate(normalize-space(concat('&#x7F;',.,'&#x7F;')),'&#x7F;','')"/></xsl:template>
 
-    <xsl:template match="stx:knowl">
+    <xsl:template match="/">
         <xsl:text>%%%%% SpaTeXt Commands %%%%%</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>\providecommand{\stxKnowl}{}\renewcommand{\stxKnowl}[1]{#1}</xsl:text>
@@ -27,11 +27,16 @@
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>%%%%%%%%%%%%%%%%%%%%%%%%%%%%</xsl:text>
         <xsl:text>&#xa;</xsl:text>
+        <xsl:apply-templates/>
+    </xsl:template>
+
+    <xsl:template match="stx:knowl">
         <xsl:text>\stxKnowl{</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:apply-templates select="stx:title[1]"/>
         <xsl:call-template name="knowl"/>
         <xsl:text>}</xsl:text>
+        <xsl:text>&#xa;</xsl:text>
         <xsl:text>&#xa;</xsl:text>
     </xsl:template>
 
@@ -66,8 +71,19 @@
         <xsl:text>&#xa;</xsl:text>
     </xsl:template>
 
-    <xsl:template match="stx:intro|stx:content">
+    <xsl:template match="stx:intro">
         <xsl:apply-templates select="stx:p"/>
+    </xsl:template>
+
+    <xsl:template match="stx:content">
+        <xsl:choose>
+            <xsl:when test="ancestor::stx:knowl">
+                <xsl:apply-templates select="stx:p"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="stx:p|stx:knowl"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="stx:outtro">
