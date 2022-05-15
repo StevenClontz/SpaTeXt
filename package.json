@@ -1,6 +1,6 @@
 {
   "name": "spatext",
-  "version": "0.0.0-dev",
+  "version": "0.2.0-dev",
   "private": true,
   "scripts": {
     "build": "rollup -c && cp -r public/* docs/",
