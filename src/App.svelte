@@ -3,7 +3,6 @@
     import Knowl from './Elements/Knowl.svelte'
     import KnowlContent from './Elements/KnowlContent.svelte'
     import Paragraph from './Elements/Paragraph.svelte'
-    import Part from './Elements/Part.svelte'
     // @ts-ignore
     import exampleStxSource from './xml/example.stx'
     // @ts-ignore
@@ -42,7 +41,7 @@
             error = true
             errorText = "Root element must have these attributes: xmlns=\"https://spatext.clontz.org\" version=\"0.2\""
         } else {
-            latex = latexTransform.transformToDocument(stxDom).querySelector(":scope").textContent.trim()
+            latex = latexTransform.transformToDocument(stxDom).querySelector(":scope")?.textContent.trim()
             html = htmlTransform.transformToDocument(stxDom).querySelector("body > *")?.outerHTML
             error = false
             errorText = ""
@@ -75,8 +74,6 @@
             {#if rightPane=="result"}
                 {#if stxElement.tagName == "knowl"}
                     <Knowl knowl={stxElement}/>
-                {:else if stxElement.tagName == "part"}
-                    <Part part={stxElement}/>
                 {:else if stxElement.tagName == "content"}
                     {#if containsKnowl(stxElement) }
                         <SectionContent content={stxElement}/>

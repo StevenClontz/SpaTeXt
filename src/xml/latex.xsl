@@ -27,32 +27,23 @@
         <xsl:text>&#xa;</xsl:text>
         <xsl:text>%%%%%%%%%%%%%%%%%%%%%%%%%%%%</xsl:text>
         <xsl:text>&#xa;</xsl:text>
-        <xsl:apply-templates/>
+        <xsl:apply-templates select="*"/>
     </xsl:template>
 
     <xsl:template match="stx:knowl">
         <xsl:text>\stxKnowl{</xsl:text>
         <xsl:text>&#xa;</xsl:text>
         <xsl:apply-templates select="stx:title[1]"/>
-        <xsl:call-template name="knowl"/>
-        <xsl:text>}</xsl:text>
-        <xsl:text>&#xa;</xsl:text>
-        <xsl:text>&#xa;</xsl:text>
-    </xsl:template>
-
-    <xsl:template match="stx:part">
-        <xsl:text>\item</xsl:text>
-        <xsl:text>&#xa;</xsl:text>
-        <xsl:call-template name="knowl"/>
-    </xsl:template>
-
-    <xsl:template name="knowl">
         <xsl:apply-templates select="stx:intro[1]"/>
         <xsl:choose>
-            <xsl:when test="stx:part">
+            <xsl:when test="stx:knowl">
                 <xsl:text>\begin{enumerate}</xsl:text>
                 <xsl:text>&#xa;</xsl:text>
-                <xsl:apply-templates select="stx:part"/>
+                <xsl:for-each select="stx:knowl">
+                    <xsl:text>\item</xsl:text>
+                    <xsl:text>&#xa;</xsl:text>
+                    <xsl:apply-templates select="."/>
+                </xsl:for-each>
                 <xsl:text>\end{enumerate}</xsl:text>
                 <xsl:text>&#xa;</xsl:text>
             </xsl:when>
@@ -61,6 +52,9 @@
             </xsl:otherwise>
         </xsl:choose>
         <xsl:apply-templates select="stx:outtro[1]"/>
+        <xsl:text>}</xsl:text>
+        <xsl:text>&#xa;</xsl:text>
+        <xsl:text>&#xa;</xsl:text>
     </xsl:template>
 
     <xsl:template match="stx:title">

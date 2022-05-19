@@ -15,29 +15,23 @@
     <xsl:template match="stx:knowl">
         <div class="stx-knowl">
             <xsl:apply-templates select="stx:title[1]"/>
-            <xsl:call-template name="knowl"/>
+            <xsl:apply-templates select="stx:intro[1]"/>
+            <xsl:choose>
+                <xsl:when test="stx:knowl">
+                    <ol>
+                        <xsl:for-each select="stx:knowl">
+                            <li>
+                                <xsl:apply-templates select="."/>
+                            </li>
+                        </xsl:for-each>
+                    </ol>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="stx:content[1]"/>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:apply-templates select="stx:outtro[1]"/>
         </div>
-    </xsl:template>
-
-    <xsl:template match="stx:part">
-        <li>
-            <xsl:call-template name="knowl"/>
-        </li>
-    </xsl:template>
-
-    <xsl:template name="knowl">
-        <xsl:apply-templates select="stx:intro[1]"/>
-        <xsl:choose>
-            <xsl:when test="stx:part">
-                <ol>
-                    <xsl:apply-templates select="stx:part"/>
-                </ol>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates select="stx:content[1]"/>
-            </xsl:otherwise>
-        </xsl:choose>
-        <xsl:apply-templates select="stx:outtro[1]"/>
     </xsl:template>
 
     <xsl:template match="stx:title">
