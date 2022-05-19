@@ -9,6 +9,8 @@
     import latexXsl from './xml/latex.xsl'
     // @ts-ignore
     import htmlXsl from './xml/html.xsl'
+    // @ts-ignore
+    import ptxXsl from './xml/pretext.xsl'
 
     const parser = new DOMParser()
     let exampleStx:string = exampleStxSource
@@ -22,10 +24,15 @@
     const htmlXslDom = parser.parseFromString(htmlXsl, "application/xml")
     htmlTransform.importStylesheet(htmlXslDom)
 
+    const ptxTransform = new XSLTProcessor()
+    const ptxXslDom = parser.parseFromString(ptxXsl, "application/xml")
+    ptxTransform.importStylesheet(ptxXslDom)
+
     let rightPane = "result"
     let stxElement: Element
     let latex: string
     let html: string
+    let pretext: string
     let error: boolean
     let errorText: string
     $: if (parser.parseFromString(exampleStx, "application/xml").querySelector('parsererror')) {
@@ -41,8 +48,9 @@
             error = true
             errorText = "Root element must have these attributes: xmlns=\"https://spatext.clontz.org\" version=\"0.2\""
         } else {
-            latex = latexTransform.transformToDocument(stxDom).querySelector(":scope")?.textContent.trim()
-            html = htmlTransform.transformToDocument(stxDom).querySelector("body > *")?.outerHTML
+            latex = latexTransform.transformToDocument(stxDom).querySelector(":scope").textContent.trim()
+            html = htmlTransform.transformToDocument(stxDom).querySelector("div.stx").outerHTML.trim()
+            pretext = ptxTransform.transformToDocument(stxDom).querySelector(':scope').outerHTML.trim()
             error = false
             errorText = ""
         }
@@ -57,20 +65,20 @@
     <h1>SpaTeXt Demo</h1>
     <div style="overflow:hidden">
         <div class="leftBox">
-            <p>
-                <textarea bind:value={exampleStx} class:error={error}/>
-            </p>
+            <textarea bind:value={exampleStx} class:error={error}/>
             {#if errorText != ""}
                 <p style="color:red">{errorText}</p>
+            {:else}
+                <p>
+                    Show:
+                    <a href="#result" on:click|preventDefault={()=>rightPane="result"}>Result</a> |
+                    <a href="#html" on:click|preventDefault={()=>rightPane="html"}>Static HTML</a> |
+                    <a href="#latex" on:click|preventDefault={()=>rightPane="latex"}>LaTeX</a> |
+                    <a href="#pretext" on:click|preventDefault={()=>rightPane="pretext"}>PreTeXt</a>
+                </p>
             {/if}
         </div>
         <div class="rightBox">
-            <p>
-                Show:
-                <a href="#result" on:click|preventDefault={()=>rightPane="result"}>Result</a> |
-                <a href="#html" on:click|preventDefault={()=>rightPane="html"}>Static HTML</a> |
-                <a href="#latex" on:click|preventDefault={()=>rightPane="latex"}>LaTeX</a>
-            </p>
             {#if rightPane=="result"}
                 {#if stxElement.tagName == "knowl"}
                     <Knowl knowl={stxElement}/>
@@ -84,12 +92,14 @@
                     <Paragraph paragraph={stxElement}/>
                 {/if}
             {:else if rightPane=="html"}
-                <pre>{html}</pre>
+                <textarea readonly value={html}/>
                 <div>
                     {@html html}
                 </div>
             {:else if rightPane=="latex"}
-                <pre>{latex}</pre>
+                <textarea readonly value={latex}/>
+            {:else if rightPane=="pretext"}
+                <textarea readonly value={pretext}/>
             {/if}
         </div>
     </div>
@@ -117,6 +127,7 @@
     textarea {
         width:100%;
         height:30em;
+        font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
     }
 
     .error {
