@@ -1,6 +1,6 @@
 <script lang="ts">
-    import SectionContentNodes from "../NodeList/SectionContentNodes.svelte"
+    import ContentNodes from "../NodeList/ContentNodes.svelte"
     export let content:Element;
 </script>
 
-<SectionContentNodes nodes={content.childNodes}/>
+<ContentNodes nodes={content.childNodes} allowKnowls/>

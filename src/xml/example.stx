@@ -4,7 +4,17 @@
     <knowl mode="exercise">
         <title>An example <c>&lt;knowl&gt;</c></title>
         <intro>
-            <p>So here's the thing.</p>
+            <p>So here's a list of things.</p>
+            <list>
+                <item><p>First thing.</p></item>
+                <item><p>Second thing.</p></item>
+                <item>
+                    <p>Something with a sublist.</p>
+                    <list><item><p>hi</p></item></list>
+                </item>
+                <item><p><m>4^{th}</m> thing.</p></item>
+                <item><p>Last thing.</p></item>
+            </list>
         </intro>
         <knowl>
             <content>

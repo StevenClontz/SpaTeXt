@@ -7,19 +7,19 @@
     {#if node.nodeType == Node.TEXT_NODE}
         {node.textContent}
     {:else if node instanceof Element}
-        {#if node.nodeName == "m"}
+        {#if node.nodeName.toLowerCase() == "m"}
             <Math latex={node.textContent} displayMode={node.getAttribute('mode')=="display"}/>
-        {:else if node.nodeName == "me"}
+        {:else if node.nodeName.toLowerCase() == "me"}
             <Math latex={node.textContent} displayMode/>
-        {:else if node.nodeName == "c"}
+        {:else if node.nodeName.toLowerCase() == "c"}
             <code>{node.textContent}</code>
-        {:else if node.nodeName == "em"}
+        {:else if node.nodeName.toLowerCase() == "em"}
             <em><svelte:self nodes={node.childNodes}/></em>
-        {:else if node.nodeName == "q"}
+        {:else if node.nodeName.toLowerCase() == "q"}
             "<svelte:self nodes={node.childNodes}/>"
-        {:else if node.nodeName == "image"}
+        {:else if node.nodeName.toLowerCase() == "image"}
             <img src={node.getAttribute('remote')+"/"+node.getAttribute('source')} alt={node.getAttribute('description')}/>
-        {:else if node.nodeName == "url"}
+        {:else if node.nodeName.toLowerCase() == "url"}
             <a href={node.getAttribute("href")}>
                 {#if node.textContent.trim()===''}
                     {node.getAttribute("href")}

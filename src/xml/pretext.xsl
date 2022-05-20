@@ -60,17 +60,17 @@
 
     <xsl:template match="stx:intro">
         <introduction>
-            <xsl:apply-templates select="stx:p"/>
+            <xsl:apply-templates select="stx:p|stx:list"/>
         </introduction>
     </xsl:template>
 
     <xsl:template match="stx:content">
         <xsl:choose>
             <xsl:when test="ancestor::stx:knowl">
-                <xsl:apply-templates select="stx:p"/>
+                <xsl:apply-templates select="stx:p|stx:list"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select="stx:p|stx:knowl"/>
+                <xsl:apply-templates select="stx:p|stx:list|stx:knowl"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -79,15 +79,27 @@
         <xsl:choose>
             <xsl:when test="ancestor::stx:knowl[@mode='exercise']">
                 <solution>
-                    <xsl:apply-templates select="stx:p"/>
+                    <xsl:apply-templates select="stx:p|stx:list"/>
                 </solution>
             </xsl:when>
             <xsl:otherwise>
                 <conclusion>
-                    <xsl:apply-templates select="stx:p"/>
+                    <xsl:apply-templates select="stx:p|stx:list"/>
                 </conclusion>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+
+    <xsl:template match="stx:list">
+        <xsl:if test="stx:item">
+            <ul>
+                <xsl:for-each select="stx:item">
+                    <li>
+                        <xsl:apply-templates select="stx:p|stx:list"/>
+                    </li>
+                </xsl:for-each>
+            </ul>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="parseDisplay">

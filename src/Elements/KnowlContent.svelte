@@ -1,8 +1,6 @@
 <script lang="ts">
-    import Paragraph from './Paragraph.svelte';
+    import ContentNodes from "../NodeList/ContentNodes.svelte"
     export let content:Element;
 </script>
 
-{#each content.querySelectorAll(":scope > p") as paragraph}
-    <Paragraph {paragraph}/>
-{/each}
+<ContentNodes nodes={content.childNodes} allowKnowls={false}/>

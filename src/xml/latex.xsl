@@ -66,16 +66,16 @@
     </xsl:template>
 
     <xsl:template match="stx:intro">
-        <xsl:apply-templates select="stx:p"/>
+        <xsl:apply-templates select="stx:p|stx:list"/>
     </xsl:template>
 
     <xsl:template match="stx:content">
         <xsl:choose>
             <xsl:when test="ancestor::stx:knowl">
-                <xsl:apply-templates select="stx:p"/>
+                <xsl:apply-templates select="stx:p|stx:list"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select="stx:p|stx:knowl"/>
+                <xsl:apply-templates select="stx:p|stx:list|stx:knowl"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -83,9 +83,23 @@
     <xsl:template match="stx:outtro">
         <xsl:text>\stxOuttro{</xsl:text>
         <xsl:text>&#xa;</xsl:text>
-        <xsl:apply-templates select="stx:p"/>
+        <xsl:apply-templates select="stx:p|stx:list"/>
         <xsl:text>}</xsl:text>
         <xsl:text>&#xa;</xsl:text>
+    </xsl:template>
+
+    <xsl:template match="stx:list">
+        <xsl:if test="stx:item">
+            <xsl:text>\begin{itemize}</xsl:text>
+            <xsl:text>&#xa;</xsl:text>
+                <xsl:for-each select="stx:item">
+                    <xsl:text>\item</xsl:text>
+                    <xsl:text>&#xa;</xsl:text>
+                    <xsl:apply-templates select="stx:p|stx:list"/>
+                </xsl:for-each>
+            <xsl:text>\end{itemize}</xsl:text>
+            <xsl:text>&#xa;</xsl:text>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="parseDisplay">

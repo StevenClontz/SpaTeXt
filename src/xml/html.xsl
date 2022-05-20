@@ -48,7 +48,7 @@
 
     <xsl:template match="stx:intro">
         <div class="stx-intro">
-            <xsl:apply-templates select="stx:p"/>
+            <xsl:apply-templates select="stx:p|stx:list"/>
         </div>
     </xsl:template>
 
@@ -56,10 +56,10 @@
         <div class="stx-content">
             <xsl:choose>
                 <xsl:when test="ancestor::stx:knowl">
-                    <xsl:apply-templates select="stx:p"/>
+                    <xsl:apply-templates select="stx:p|stx:list"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:apply-templates select="stx:p|stx:knowl"/>
+                    <xsl:apply-templates select="stx:p|stx:list|stx:knowl"/>
                 </xsl:otherwise>
             </xsl:choose>
         </div>
@@ -67,8 +67,20 @@
 
     <xsl:template match="stx:outtro">
         <div class="stx-outtro">
-            <xsl:apply-templates select="stx:p"/>
+            <xsl:apply-templates select="stx:p|stx:list"/>
         </div>
+    </xsl:template>
+
+    <xsl:template match="stx:list">
+        <xsl:if test="stx:item">
+            <ul class="stx-list">
+                <xsl:for-each select="stx:item">
+                    <li>
+                        <xsl:apply-templates select="stx:p|stx:list"/>
+                    </li>
+                </xsl:for-each>
+            </ul>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="parseDisplay">
