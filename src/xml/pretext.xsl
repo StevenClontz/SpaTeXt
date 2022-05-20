@@ -4,7 +4,7 @@
                 xmlns:stx="https://spatext.clontz.org"
                 exclude-result-prefixes="stx">
 
-    <xsl:output method="xml"/>
+    <xsl:output method="xml" indent="yes"/>
 
     <!-- kill undefined elements -->
     <xsl:template match="*"/>
@@ -76,9 +76,18 @@
     </xsl:template>
 
     <xsl:template match="stx:outtro">
-        <conclusion>
-            <xsl:apply-templates select="stx:p"/>
-        </conclusion>
+        <xsl:choose>
+            <xsl:when test="ancestor::stx:knowl[@mode='exercise']">
+                <solution>
+                    <xsl:apply-templates select="stx:p"/>
+                </solution>
+            </xsl:when>
+            <xsl:otherwise>
+                <conclusion>
+                    <xsl:apply-templates select="stx:p"/>
+                </conclusion>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template name="parseDisplay">
