@@ -4,13 +4,13 @@
     import KnowlContent from './Elements/KnowlContent.svelte'
     import Paragraph from './Elements/Paragraph.svelte'
     // @ts-ignore
-    import exampleStxSource from './xml/example.stx'
+    import exampleStxSource from './example.stx'
     // @ts-ignore
-    import latexXsl from './xml/latex.xsl'
+    import latexXsl from './xsl/latex.xsl'
     // @ts-ignore
-    import htmlXsl from './xml/html.xsl'
+    import htmlXsl from './xsl/html.xsl'
     // @ts-ignore
-    import ptxXsl from './xml/pretext.xsl'
+    import ptxXsl from './xsl/pretext.xsl'
 
     const parser = new DOMParser()
     let exampleStx:string = exampleStxSource
