@@ -78,9 +78,9 @@
     <xsl:template match="stx:outtro">
         <xsl:choose>
             <xsl:when test="ancestor::stx:knowl[@mode='exercise']">
-                <solution>
+                <answer>
                     <xsl:apply-templates select="stx:p|stx:list"/>
-                </solution>
+                </answer>
             </xsl:when>
             <xsl:otherwise>
                 <conclusion>
