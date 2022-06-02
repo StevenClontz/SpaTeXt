@@ -1,6 +1,13 @@
 <script lang="ts">
     import Math from '../Elements/Math.svelte';
     export let nodes:NodeList;
+    const imageSrc = (i:Element) => {
+        if (i.hasAttribute('remote')) {
+            return i.getAttribute('remote')+"/"+i.getAttribute('source')
+        } else {
+            return i.getAttribute('source')
+        }
+    }
 </script>
 
 {#each nodes as node}
@@ -18,7 +25,7 @@
         {:else if node.nodeName.toLowerCase() == "q"}
             "<svelte:self nodes={node.childNodes}/>"
         {:else if node.nodeName.toLowerCase() == "image"}
-            <img src={node.getAttribute('remote')+"/"+node.getAttribute('source')} alt={node.getAttribute('description')}/>
+            <img src={imageSrc(node)} alt={node.getAttribute('description')}/>
         {:else if node.nodeName.toLowerCase() == "url"}
             <a href={node.getAttribute("href")}>
                 {#if node.textContent.trim()===''}
