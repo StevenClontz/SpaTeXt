@@ -4,30 +4,40 @@
     <knowl mode="exercise">
         <title>An example <c>&lt;knowl&gt;</c></title>
         <intro>
-            <p>So here's a list of things.</p>
-            <list>
-                <item><p>First thing.</p></item>
-                <item><p>Second thing.</p></item>
-                <item>
-                    <p>Something with a sublist.</p>
-                    <list><item><p>hi</p></item></list>
-                </item>
-                <item><p><m>4^{th}</m> thing.</p></item>
-                <item><p>Last thing.</p></item>
-            </list>
+            <p>So here's a few parts.</p>
         </intro>
         <knowl>
-            <content>
-                <p>Some inline math <m>x^2+y^2=z^2</m>.</p>
-                <p>Some display math <m mode="display">\sum_{k=0}^n k=\frac{n(n+1)}{2}</m></p>
-                <p>
-Hey check out <url href="https://checkit.clontz.org"><em>CheckIt</em></url>.
-It's at <url href="https://checkit.clontz.org"/>.
-                </p>
-            </content>
-            <outtro>
-                <p>I guess an answer <em>should</em> go here.</p>
-            </outtro>
+            <knowl>
+                <content>
+                    <p>Some inline math <m>x^2+y^2=z^2</m>.</p>
+                    <p>Some display math <m mode="display">\sum_{k=0}^n k=\frac{n(n+1)}{2}</m></p>
+                    <p>
+    Hey check out <url href="https://checkit.clontz.org"><em>CheckIt</em></url>.
+    It's at <url href="https://checkit.clontz.org"/>.
+                    </p>
+                </content>
+                <outtro>
+                    <p>I guess an answer <em>should</em> go here.</p>
+                </outtro>
+            </knowl>
+            <knowl>
+                <content>
+                    <p>And now a list.</p>
+                    <list>
+                        <item><p>First thing.</p></item>
+                        <item><p>Second thing.</p></item>
+                        <item>
+                            <p>Something with a sublist.</p>
+                            <list><item><p>hi</p></item></list>
+                        </item>
+                        <item><p><m>4^{th}</m> thing.</p></item>
+                        <item><p>Last thing.</p></item>
+                    </list>
+                </content>
+                <outtro>
+                    <p>Another answer.</p>
+                </outtro>
+            </knowl>
         </knowl>
         <knowl>
             <content>
@@ -35,10 +45,10 @@ It's at <url href="https://checkit.clontz.org"/>.
 Hey let's try an image. <image remote="https://via.placeholder.com" source="150x100"/>
                 </p>
             </content>
+            <outtro>
+                <p>And finally... the end!</p>
+            </outtro>
         </knowl>
-        <outtro>
-            <p>And finally... the end!</p>
-        </outtro>
     </knowl>
     <knowl>
         <content>
