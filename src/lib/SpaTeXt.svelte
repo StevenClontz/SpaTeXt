@@ -1,5 +1,5 @@
 <script lang="ts">
-    import M from './Elements/M.svelte'
+    import Content from './Elements/Content.svelte'
     import P from './Elements/P.svelte'
     import * as Cheerio from 'cheerio'
     export let stx:string
@@ -7,8 +7,8 @@
 </script>
 
 {#each cheerio.children() as element}
-    {#if ["m","me"].includes(element.tagName)}
-        <M {element}/>
+    {#if ["content"].includes(element.tagName)}
+        <Content {element}/>
     {:else if ["p"].includes(element.tagName)}
         <P {element}/>
     {/if}
