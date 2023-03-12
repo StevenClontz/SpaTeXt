@@ -1,6 +1,7 @@
 <script lang="ts">
     import SpaTeXt from '../lib/SpaTeXt.svelte'
-    let stx='<p>The Pythagorean Theorem is <me mode="inline">a^2+b^2=c^2.</me></p>\n<p>Foo.</p>'
+    import sampleStx from './sample.stx?raw'
+    let stx = sampleStx
     const version = __VERSION__
 </script>
 

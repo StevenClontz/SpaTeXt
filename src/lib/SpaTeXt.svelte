@@ -3,13 +3,13 @@
     import P from './Elements/P.svelte'
     import * as C from 'cheerio'
     export let stx:string
-    $: cheerio = C.load(stx,{xml: true}).root().children()
+    $: cheerio = C.load(stx,{xml: true})("spatext:first")
 </script>
 
-{#each cheerio as element}
-    {#if element.tagName === "m" || element.tagName === "me"}
+{#each cheerio.children() as element}
+    {#if ["m","me"].includes(element.tagName)}
         <M {element}/>
-    {:else if element.tagName === "p"}
+    {:else if ["p"].includes(element.tagName)}
         <P {element}/>
     {/if}
 {:else}
