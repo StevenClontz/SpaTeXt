@@ -1,8 +1,8 @@
 <script lang="ts">
-    import * as C from 'cheerio'
+    import * as Cheerio from 'cheerio'
     import katex from 'katex'
     import 'katex/dist/katex.min.css'
-    export let element:C.Element
+    export let element:Cheerio.Element
     let displayMode:boolean
     $: if (element.tagName == "me") {
         displayMode = (element.attribs["mode"] !== "inline")
@@ -11,7 +11,7 @@
     } else {
         displayMode = false
     }
-    $: latex = C.load(element).text()
+    $: latex = Cheerio.load(element).text()
 </script>
 
 {@html katex.renderToString(latex,{throwOnError:false,displayMode:displayMode})}
