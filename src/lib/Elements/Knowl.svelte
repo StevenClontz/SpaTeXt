@@ -5,24 +5,38 @@
     import Intro from './Intro.svelte'
     import Outtro from './Outtro.svelte'
     export let element:Cheerio.Element
+    export let depth:number=0
 </script>
 
 <div>
-    <h3>
-        Knowl:
-        {#each Cheerio.load(element)("title:first") as title}
-            <Title element={title}/>
+    {#if depth === 0}
+        <h3>
+            Knowl{#each Cheerio.load(element)("title:first") as title}
+                : <Title element={title}/>
+            {/each}
+        </h3>
+    {:else}
+        <h4>
+            Part{#each Cheerio.load(element)("title:first") as title}
+                : <Title element={title}/>
+            {/each}
+        </h4>
+    {/if}
+    <div style="margin-left:4em">
+        {#each Cheerio.load(element)("intro:first") as intro}
+            <Intro element={intro}/>
+            <hr/>
         {/each}
-    </h3>
-    {#each Cheerio.load(element)("intro:first") as intro}
-        <Intro element={intro}/>
-        <hr/>
-    {/each}
-    {#each Cheerio.load(element)("content:first") as content}
-        <Content element={content}/>
-    {/each}
-    {#each Cheerio.load(element)("outtro:first") as outtro}
-        <hr/>
-        <Outtro element={outtro}/>
-    {/each}
+        {#each Cheerio.load(element)("*:first").children("knowl") as knowl}
+            <svelte:self element={knowl} depth={depth+1}/>
+        {:else}
+            {#each Cheerio.load(element)("content:first") as content}
+                <Content element={content}/>
+            {/each}
+        {/each}
+        {#each Cheerio.load(element)("outtro:first") as outtro}
+            <hr/>
+            <Outtro element={outtro}/>
+        {/each}
+    </div>
 </div>
