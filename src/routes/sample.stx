@@ -1,22 +1,31 @@
 <?xml version="1.0"?>
 <spatext xmlns="https://spatext.clontz.org" version="0.3">
-    <content>
-        <p>Some inline math <m>x^2+y^2=z^2</m>.</p>
-        <p>Some display math <m mode="display">\sum_{k=0}^n k=\frac{n(n+1)}{2}</m></p>
-        <p>
+    <knowl>
+        <title>An example <c>&lt;knowl&gt;</c></title>
+        <intro>
+            <p>So here's a few parts.</p>
+        </intro>
+        <content>
+            <p>Some inline math <m>x^2+y^2=z^2</m>.</p>
+            <p>Some display math <m mode="display">\sum_{k=0}^n k=\frac{n(n+1)}{2}</m></p>
+            <p>
 Hey check out <url href="https://checkit.clontz.org"><em>CheckIt</em></url>.
 It's at <url href="https://checkit.clontz.org"/>.
-        </p>
-        <p>And now a list.</p>
-        <list mode="ordered">
-            <item><p>First thing.</p></item>
-            <item><p>Second thing.</p></item>
-            <item>
-                <p>Something with a sublist.</p>
-                <list><item><p>hi</p></item><item><p>mom</p></item></list>
-            </item>
-            <item><p><m>4^{th}</m> thing.</p></item>
-            <item><p>Last thing.</p></item>
-        </list>
-    </content>
+            </p>
+            <p>And now a list.</p>
+            <list mode="ordered">
+                <item><p>First thing.</p></item>
+                <item><p>Second thing.</p></item>
+                <item>
+                    <p>Something with a sublist.</p>
+                    <list><item><p>hi</p></item><item><p>mom</p></item></list>
+                </item>
+                <item><p><m>4^{th}</m> thing.</p></item>
+                <item><p>Last thing.</p></item>
+            </list>
+        </content>
+        <outtro>
+            <p>I guess an answer <em>should</em> go here.</p>
+        </outtro>
+    </knowl>
 </spatext>
