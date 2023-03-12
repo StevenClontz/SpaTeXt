@@ -1,9 +1,9 @@
 <script lang="ts">
     import M from './Elements/M.svelte'
     import P from './Elements/P.svelte'
-    import * as C from 'cheerio'
+    import * as Cheerio from 'cheerio'
     export let stx:string
-    $: cheerio = C.load(stx,{xml: true})("spatext:first")
+    $: cheerio = Cheerio.load(stx,{xml: true})("spatext:first")
 </script>
 
 {#each cheerio.children() as element}
