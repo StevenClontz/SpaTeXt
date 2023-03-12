@@ -46,5 +46,10 @@
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@types/katex": "^0.16.0",
+		"cheerio": "^1.0.0-rc.12",
+		"katex": "^0.16.4"
+	}
 }
