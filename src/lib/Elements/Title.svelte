@@ -1,6 +1,6 @@
 <script lang="ts">
     import type * as Cheerio from 'cheerio'
-    import { CheerioDoc } from '../stores'
+    import { CheerioApi } from '../stores'
     import C from './C.svelte'
     import Em from './Em.svelte';
     import M from './M.svelte'
@@ -9,9 +9,9 @@
 </script>
 
 
-{#each $CheerioDoc(element).contents() as child}
+{#each $CheerioApi(element).contents() as child}
     {#if !("tagName" in child)}
-        {$CheerioDoc(child).text()}
+        {$CheerioApi(child).text()}
     {:else if child.tagName === "m" || child.tagName === "me"}
         <M element={child}/>
     {:else if child.tagName === "em"}
