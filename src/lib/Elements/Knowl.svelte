@@ -6,7 +6,7 @@
     import Intro from './Intro.svelte'
     import Outtro from './Outtro.svelte'
     export let element:Cheerio.Element
-    let depth:number=$CheerioDoc(element).parents("knowl").length
+    $: depth:number=$CheerioDoc(element).parents("knowl").length
 </script>
 
 <div>

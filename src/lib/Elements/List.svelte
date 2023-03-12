@@ -3,7 +3,7 @@
     import { CheerioDoc } from '../stores'
     import Item from './Item.svelte'
     export let element:Cheerio.Element
-    let ordered = (element.attribs["mode"]=="ordered")
+    $: ordered = (element.attribs["mode"]=="ordered")
 </script>
 
 {#if $CheerioDoc(element).children("item")}
