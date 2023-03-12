@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<spatext xmlns="https://spatext.clontz.org" version="0.3">
+    <p>Some inline math <m>x^2+y^2=z^2</m>.</p>
+    <p>Some display math <m mode="display">\sum_{k=0}^n k=\frac{n(n+1)}{2}</m></p>
+    <p>
+Hey check out <url href="https://checkit.clontz.org"><em>CheckIt</em></url>.
+It's at <url href="https://checkit.clontz.org"/>.
+    </p>
+</spatext>
