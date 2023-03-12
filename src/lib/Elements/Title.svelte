@@ -1,5 +1,6 @@
 <script lang="ts">
-    import * as Cheerio from 'cheerio'
+    import type * as Cheerio from 'cheerio'
+    import { CheerioDoc } from '../stores'
     import C from './C.svelte'
     import Em from './Em.svelte';
     import M from './M.svelte'
@@ -8,9 +9,9 @@
 </script>
 
 
-{#each Cheerio.load(element)("*:first").contents() as child}
+{#each $CheerioDoc(element).contents() as child}
     {#if !("tagName" in child)}
-        {Cheerio.load(child).text()}
+        {$CheerioDoc(child).text()}
     {:else if child.tagName === "m" || child.tagName === "me"}
         <M element={child}/>
     {:else if child.tagName === "em"}

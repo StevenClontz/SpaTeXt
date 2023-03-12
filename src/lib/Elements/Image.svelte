@@ -1,13 +1,14 @@
 <script lang="ts">
     import type * as Cheerio from 'cheerio'
+    import { CheerioDoc } from '../stores'
     export let element:Cheerio.Element
     let src:string
-    if (element.attribs["remote"].length > 0) {
-        src = element.attribs["remote"] + "/" + element.attribs["source"]
+    if ($CheerioDoc(element).attr("remote")) {
+        src = $CheerioDoc(element).attr("remote") + "/" + $CheerioDoc(element).attr("source")
     } else {
-        src = element.attribs["source"]
+        src = "./" + $CheerioDoc(element).attr("source")
     }
-    let alt = element.attribs["description"]
+    let alt = $CheerioDoc(element).attr("description")
 </script>
 
 <img style="max-width:100%" {src} {alt}/>
