@@ -8,6 +8,7 @@
 </script>
 
 <h1>SpaTeXt {version}</h1>
+<h3 style="color:#444">Simplified PreTeXt for Apps</h3>
 
 <div class="flex-container">
     <div class="column"><CodeMirror bind:value={stx} lang={xml()} styles={{"&":{border:"1px solid #aaa"}}}/></div>

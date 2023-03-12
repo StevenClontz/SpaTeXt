@@ -1,5 +1,6 @@
 <script lang="ts">
     import Content from './Elements/Content.svelte'
+    import Division from './Elements/Division.svelte'
     import Knowl from './Elements/Knowl.svelte'
     import P from './Elements/P.svelte'
     import { CheerioApi } from './stores'
@@ -15,6 +16,8 @@
         <Knowl {element}/>
     {:else if ["p"].includes(element.tagName)}
         <P {element}/>
+    {:else if ["division"].includes(element.tagName)}
+        <Division {element}/>
     {/if}
 {:else}
     <div class="warning">(No SpaTeXt elements found.)</div>
