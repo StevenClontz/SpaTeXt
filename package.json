@@ -1,6 +1,6 @@
 {
 	"name": "spatext",
-	"version": "0.3.0-dev",
+	"version": "0.3.0-beta.20230312",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
