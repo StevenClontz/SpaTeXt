@@ -48,8 +48,10 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
+		"@codemirror/lang-xml": "^6.0.2",
 		"@types/katex": "^0.16.0",
 		"cheerio": "^1.0.0-rc.12",
-		"katex": "^0.16.4"
+		"katex": "^0.16.4",
+		"svelte-codemirror-editor": "^1.1.0"
 	}
 }
