@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SpaTeXt from '../lib/SpaTeXt.svelte'
+    import SpaTeXt from '../lib'
     import sampleStx from './sample.stx?raw'
     import CodeMirror from "svelte-codemirror-editor"
     import { xml } from "@codemirror/lang-xml";
