@@ -1,9 +1,7 @@
 <script lang="ts">
     import type * as Cheerio from 'cheerio'
-    import Children from './P.children.svelte'
+    import Children from './Content.children.svelte'
     export let element:Cheerio.Element
 </script>
 
-<p>
-    <Children {element}/>
-</p>
+<li><Children element={element}/></li>
