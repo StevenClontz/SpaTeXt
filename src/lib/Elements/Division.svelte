@@ -1,7 +1,7 @@
 <script lang="ts">
     import type * as Cheerio from 'cheerio'
     import { CheerioApi } from '../stores'
-    import { depth, label, numbering } from './knowl'
+    import { depth, label, numbering } from './division'
     import Title from './Title.svelte'
     import Content from './Content.svelte'
     import Intro from './Intro.svelte'
@@ -11,7 +11,7 @@
 
 <div>
     {#if depth(element,$CheerioApi) === 0}
-        <h3>
+        <h1>
             {#each $CheerioApi(element).children("title:first") as title}
                 {label(element,$CheerioApi)}
                 {numbering(element,$CheerioApi)}:
@@ -20,9 +20,9 @@
                 {label(element,$CheerioApi)}
                 {numbering(element,$CheerioApi)}.
             {/each}
-        </h3>
+        </h1>
     {:else}
-        <h4>
+        <h2>
             {#each $CheerioApi(element).children("title:first") as title}
                 {label(element,$CheerioApi)}
                 {numbering(element,$CheerioApi)}:
@@ -31,17 +31,17 @@
                 {label(element,$CheerioApi)}
                 {numbering(element,$CheerioApi)}.
             {/each}
-        </h4>
+        </h2>
     {/if}
-    <div style="margin-left:3em">
+    <div>
         {#each $CheerioApi(element).children("intro:first") as intro}
             <Intro element={intro}/>
         {/each}
-        {#each $CheerioApi(element).children("knowl") as knowl}
-            <svelte:self element={knowl}/>
+        {#each $CheerioApi(element).children("division") as division}
+            <svelte:self element={division}/>
         {:else}
             {#each $CheerioApi(element).children("content:first") as content}
-                <Content element={content}/>
+                <Content element={content} allowKnowls/>
             {/each}
         {/each}
         {#each $CheerioApi(element).children("outtro:first") as outtro}

@@ -1,65 +1,104 @@
 <?xml version="1.0"?>
 <spatext xmlns="https://spatext.clontz.org" version="0.3">
-    <p>Showing off a couple knowls...</p>
-    <knowl mode="exercise">
-        <title>An example <c>&lt;knowl&gt;</c></title>
-        <intro>
-            <p>So here's a few parts.</p>
-        </intro>
-        <knowl>
-            <intro><p>Some sub-knowls.</p></intro>
-            <knowl>
+    <division>
+        <title>My first chapter</title>
+    </division>
+    <division/>
+    <division/>
+    <division>
+        <title>Another chapter</title>
+        <division numbering="LE"/>
+        <division numbering="EV">
+            <title>My second section</title>
+            <intro><p>About to start a subsection</p></intro>
+            <division>
+                <title>My first subsection</title>
+            </division>
+            <division/>
+            <division>
+                <title>Another subsection</title>
                 <content>
-                    <p>Some inline math <m>x^2+y^2=z^2</m>.</p>
-                    <p>Some display math <m mode="display">\sum_{k=0}^n k=\frac{n(n+1)}{2}</m></p>
-                    <p>
-    Hey check out <url href="https://checkit.clontz.org"><em>CheckIt</em></url>.
-    It's at <url href="https://checkit.clontz.org"/>.
-                    </p>
-                </content>
-                <outtro>
-                    <p>I guess an answer <em>should</em> go here.</p>
-                </outtro>
-            </knowl>
-            <knowl>
-                <content>
-                    <p>And now a list.</p>
-                    <list>
-                        <item><p>First thing.</p></item>
-                        <item><p>Second thing.</p></item>
-                        <item>
-                            <p>Something with a sublist.</p>
-                            <list><item><p>hi</p></item></list>
-                        </item>
-                        <item><p><m>4^{th}</m> thing.</p></item>
-                        <item><p>Last thing.</p></item>
-                    </list>
-                </content>
-                <outtro>
-                    <p>Another answer.</p>
-                </outtro>
-            </knowl>
-            <outtro>
-                <p>The grand conclusion.</p>
-            </outtro>
-        </knowl>
-        <knowl>
-            <content>
-                <p>
+                    <p>Showing off a couple knowls...</p>
+                    <knowl/>
+                    <knowl mode="definition"/>
+                    <knowl/>
+                    <knowl mode="theorem" label="My Big Fat Important Theorem"/>
+                    <knowl mode="exercise">
+                        <title>An example <c>&lt;knowl&gt;</c></title>
+                        <intro>
+                            <p>So here's a few parts.</p>
+                        </intro>
+                        <knowl/>
+                        <knowl>
+                            <intro><p>Some sub-knowls.</p></intro>
+                            <knowl>
+                                <content>
+                                    <p>Some inline math <m>x^2+y^2=z^2</m>.</p>
+                                    <p>Some display math <m mode="display">\sum_{k=0}^n k=\frac{n(n+1)}{2}</m></p>
+                                    <p>
+Hey check out <url href="https://checkit.clontz.org"><em>CheckIt</em></url>.
+It's at <url href="https://checkit.clontz.org"/>.
+                                    </p>
+                                </content>
+                                <outtro>
+                                    <p>I guess an answer <em>should</em> go here.</p>
+                                </outtro>
+                            </knowl>
+                            <knowl>
+                                <content>
+                                    <p>And now a list.</p>
+                                    <list mode="ordered">
+                                        <item><p>First thing.</p></item>
+                                        <item><p>Second thing.</p></item>
+                                        <item>
+                                            <p>Something with a sublist.</p>
+                                            <list>
+                                                <item><p>hi</p></item>
+                                                <item><p>mom</p></item>
+                                            </list>
+                                        </item>
+                                        <item><p><m>4^{th}</m> thing.</p></item>
+                                        <item><p>Last thing.</p></item>
+                                    </list>
+                                </content>
+                                <outtro>
+                                    <p>Another answer.</p>
+                                </outtro>
+                            </knowl>
+                            <outtro>
+                                <p>The grand conclusion.</p>
+                            </outtro>
+                        </knowl>
+                        <knowl>
+                            <content>
+                                <p>
 Hey let's try an image. <image remote="https://via.placeholder.com" source="150x100"/>
-                </p>
-            </content>
-            <outtro>
-                <p>And finally... the end!</p>
-            </outtro>
-        </knowl>
-    </knowl>
-    <knowl>
-        <content>
-            <p>A short one.</p>
-        </content>
-        <outtro>
-            <p>Shorter conclusion.</p>
-        </outtro>
-    </knowl>
+                                </p>
+                            </content>
+                            <outtro>
+                                <p>And finally... the end!</p>
+                            </outtro>
+                        </knowl>
+                    </knowl>
+                    <knowl>
+                        <content>
+                            <p>A short one.</p>
+                        </content>
+                        <outtro>
+                            <p>Shorter conclusion.</p>
+                        </outtro>
+                    </knowl>
+                    </content>
+            </division>
+        </division>
+        <division numbering="AT">
+            <title>My second section</title>
+        </division>
+    </division>
+    <division >
+        <title>My penultimate chapter</title>
+    </division>
+    <division>
+        <title>My last chapter</title>
+    </division>
 </spatext>
