@@ -5,16 +5,16 @@
     let ordered = (element.attribs["mode"]=="ordered")
 </script>
 
-{#if Cheerio.load(element)("item")}
+{#if Cheerio.load(element)("*:first").children("item")}
     {#if ordered}
         <ol>
-            {#each Cheerio.load(element)("item") as item}
+            {#each Cheerio.load(element)("*:first").children("item") as item}
                 <Item element={item}/>
             {/each}
         </ol>
     {:else}
         <ul>
-            {#each Cheerio.load(element)("item") as item}
+            {#each Cheerio.load(element)("*:first").children("item") as item}
                 <Item element={item}/>
             {/each}
         </ul>
