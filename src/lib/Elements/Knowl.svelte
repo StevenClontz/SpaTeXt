@@ -6,20 +6,24 @@
     import Intro from './Intro.svelte'
     import Outtro from './Outtro.svelte'
     export let element:Cheerio.Element
-    $: depth:number=$CheerioDoc(element).parents("knowl").length
+    $: depth=$CheerioDoc(element).parents("knowl").length
 </script>
 
 <div>
     {#if depth === 0}
         <h3>
-            Knowl{#each $CheerioDoc(element, "title:first") as title}
-                : <Title element={title}/>
+            Knowl{#each $CheerioDoc(element).children("title:first") as title}
+                : <Title element={title}/>.
+            {:else}
+                .
             {/each}
         </h3>
     {:else}
         <h4>
-            Part{#each $CheerioDoc(element, "title:first") as title}
-                : <Title element={title}/>
+            Part{#each $CheerioDoc(element).children("title:first") as title}
+                : <Title element={title}/>.
+            {:else}
+                .
             {/each}
         </h4>
     {/if}
