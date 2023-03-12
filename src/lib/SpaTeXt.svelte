@@ -2,13 +2,13 @@
     import Content from './Elements/Content.svelte'
     import Knowl from './Elements/Knowl.svelte'
     import P from './Elements/P.svelte'
-    import { CheerioDoc } from './stores'
+    import { CheerioApi } from './stores'
     import * as Cheerio from 'cheerio'
     export let stx:string
-    $: CheerioDoc.update(()=>Cheerio.load(stx,{xml: true}))
+    $: CheerioApi.update(()=>Cheerio.load(stx,{xml: true}))
 </script>
 
-{#each $CheerioDoc("spatext:first").children() as element}
+{#each $CheerioApi("spatext:first").children() as element}
     {#if ["content"].includes(element.tagName)}
         <Content {element}/>
     {:else if ["knowl"].includes(element.tagName)}

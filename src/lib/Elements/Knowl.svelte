@@ -1,45 +1,45 @@
 <script lang="ts">
     import type * as Cheerio from 'cheerio'
-    import { CheerioDoc } from '../stores'
+    import { CheerioApi } from '../stores'
+    import { depth, label } from './knowl'
     import Title from './Title.svelte'
     import Content from './Content.svelte'
     import Intro from './Intro.svelte'
     import Outtro from './Outtro.svelte'
     export let element:Cheerio.Element
-    $: depth=$CheerioDoc(element).parents("knowl").length
 </script>
 
 <div>
-    {#if depth === 0}
+    {#if depth(element,$CheerioApi) === 0}
         <h3>
-            Knowl{#each $CheerioDoc(element).children("title:first") as title}
-                : <Title element={title}/>.
+            {#each $CheerioApi(element).children("title:first") as title}
+                {label(element,$CheerioApi)}: <Title element={title}/>.
             {:else}
-                .
+                {label(element,$CheerioApi)}.
             {/each}
         </h3>
     {:else}
         <h4>
-            Part{#each $CheerioDoc(element).children("title:first") as title}
-                : <Title element={title}/>.
+            {#each $CheerioApi(element).children("title:first") as title}
+                {label(element,$CheerioApi)}: <Title element={title}/>.
             {:else}
-                .
+                {label(element,$CheerioApi)}.
             {/each}
         </h4>
     {/if}
-    <div style="margin-left:4em">
-        {#each $CheerioDoc(element).children("intro:first") as intro}
+    <div style="margin-left:3em">
+        {#each $CheerioApi(element).children("intro:first") as intro}
             <Intro element={intro}/>
             <hr/>
         {/each}
-        {#each $CheerioDoc(element).children("knowl") as knowl}
+        {#each $CheerioApi(element).children("knowl") as knowl}
             <svelte:self element={knowl}/>
         {:else}
-            {#each $CheerioDoc(element).children("content:first") as content}
+            {#each $CheerioApi(element).children("content:first") as content}
                 <Content element={content}/>
             {/each}
         {/each}
-        {#each $CheerioDoc(element).children("outtro:first") as outtro}
+        {#each $CheerioApi(element).children("outtro:first") as outtro}
             <hr/>
             <Outtro element={outtro}/>
         {/each}
