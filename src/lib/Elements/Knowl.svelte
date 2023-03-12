@@ -6,7 +6,7 @@
     import Intro from './Intro.svelte'
     import Outtro from './Outtro.svelte'
     export let element:Cheerio.Element
-    export let depth:number=0
+    let depth:number=$CheerioDoc(element).parents("knowl").length
 </script>
 
 <div>
@@ -29,7 +29,7 @@
             <hr/>
         {/each}
         {#each $CheerioDoc(element).children("knowl") as knowl}
-            <svelte:self element={knowl} depth={depth+1}/>
+            <svelte:self element={knowl}/>
         {:else}
             {#each $CheerioDoc(element).children("content:first") as content}
                 <Content element={content}/>
