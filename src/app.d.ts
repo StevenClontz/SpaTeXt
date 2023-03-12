@@ -9,4 +9,6 @@ declare global {
 	}
 }
 
+declare const __VERSION__ : string;
+
 export {};
