@@ -1,14 +1,15 @@
 <script lang="ts">
-    import * as Cheerio from 'cheerio'
-    import Contents from './P.children.svelte'
+    import type * as Cheerio from 'cheerio'
+    import { CheerioDoc } from '../stores'
+    import Children from './P.children.svelte'
     export let element:Cheerio.Element
-    let href = element.attribs["href"]
+    let href = $CheerioDoc(element).attr("href")
 </script>
 
 <a {href}>
-    {#if Cheerio.load(element).text()===''}
+    {#if $CheerioDoc(element).text()===''}
         {href}
     {:else}
-        <Contents {element}/>
+        <Children {element}/>
     {/if}
 </a>

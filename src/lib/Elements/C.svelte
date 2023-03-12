@@ -1,6 +1,7 @@
 <script lang="ts">
-    import * as Cheerio from 'cheerio'
+    import type * as Cheerio from 'cheerio'
+    import { CheerioDoc } from '../stores'
     export let element:Cheerio.Element
 </script>
 
-<code>{Cheerio.load(element).text()}</code>
+<code>{$CheerioDoc(element).text()}</code>

@@ -1,11 +1,12 @@
 <script lang="ts">
-    import * as Cheerio from 'cheerio'
+    import type * as Cheerio from 'cheerio'
+    import { CheerioDoc } from '../stores'
     import P from './P.svelte'
     import List from './List.svelte'
     export let element:Cheerio.Element
 </script>
 
-{#each Cheerio.load(element)("*:first").children() as child}
+{#each $CheerioDoc(element).children() as child}
     {#if child.tagName === "p"}
         <P element={child}/>
     {:else if child.tagName === "list"}
