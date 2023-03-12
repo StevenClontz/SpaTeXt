@@ -89,7 +89,7 @@ Hey let's try an image. <image remote="https://via.placeholder.com" source="150x
                             <p>Shorter conclusion.</p>
                         </outtro>
                     </knowl>
-                    </content>
+                </content>
             </division>
         </division>
         <division numbering="AT">
