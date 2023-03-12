@@ -7,5 +7,16 @@
 Hey check out <url href="https://checkit.clontz.org"><em>CheckIt</em></url>.
 It's at <url href="https://checkit.clontz.org"/>.
         </p>
+        <p>And now a list.</p>
+        <list mode="ordered">
+            <item><p>First thing.</p></item>
+            <item><p>Second thing.</p></item>
+            <item>
+                <p>Something with a sublist.</p>
+                <list><item><p>hi</p></item><item><p>mom</p></item></list>
+            </item>
+            <item><p><m>4^{th}</m> thing.</p></item>
+            <item><p>Last thing.</p></item>
+        </list>
     </content>
 </spatext>
