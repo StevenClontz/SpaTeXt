@@ -8,8 +8,8 @@
     <division/>
     <division>
         <title>Another chapter</title>
-        <division numbering="LE"/>
-        <division numbering="EV">
+        <division number="LE"/>
+        <division number="EV">
             <title>My second section</title>
             <intro><p>About to start a subsection</p></intro>
             <division>
@@ -92,7 +92,7 @@ Hey let's try an image. <image remote="https://via.placeholder.com" source="150x
                 </content>
             </division>
         </division>
-        <division numbering="AT">
+        <division number="AT">
             <title>My second section</title>
         </division>
     </division>
