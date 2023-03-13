@@ -12,7 +12,7 @@
     } else {
         displayMode = false
     }
-    let latex = $CheerioApi(element).text()
+    $: latex = $CheerioApi(element).text()
 </script>
 
 {@html katex.renderToString(latex,{throwOnError:false,displayMode:displayMode})}
