@@ -7,8 +7,12 @@
     const version = __VERSION__
 </script>
 
+<svelte:head>
+	<title>SpaTeXt Demo</title>
+</svelte:head>
+
 <h1>SpaTeXt {version}</h1>
-<h3 style="color:#444">Simplified PreTeXt for Apps</h3>
+<h3 style="color:#444">Simplified PreTeXt for Apps <small>— <a href="https://github.com/StevenClontz/SpaTeXt">GitHub</a></small></h3>
 
 <div class="flex-container">
     <div class="column"><CodeMirror bind:value={stx} lang={xml()} tabSize={4} styles={{"&":{border:"1px solid #aaa"}}}/></div>
