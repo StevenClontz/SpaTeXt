@@ -1,9 +1,10 @@
 <script lang="ts">
     import SpaTeXt from '../lib'
-    import sampleStx from './sample.stx?raw'
+    import sampleStxShort from './samples/short.stx?raw'
+    import sampleStxLong from './samples/long.stx?raw'
     import CodeMirror from "svelte-codemirror-editor"
     import { xml } from "@codemirror/lang-xml";
-    let stx = sampleStx
+    let stx = sampleStxShort
     const version = __VERSION__
 </script>
 
@@ -13,9 +14,16 @@
 
 <h1>SpaTeXt {version}</h1>
 <h3 style="color:#444">Simplified PreTeXt for Apps <small>— <a href="https://github.com/StevenClontz/SpaTeXt">GitHub</a></small></h3>
+<p>
+    Choose sample:
+    <a href="." on:click={_=>stx=sampleStxShort}>Short</a>
+    <a href="." on:click={_=>stx=sampleStxLong}>Long</a>
+</p>
 
 <div class="flex-container">
-    <div class="column"><CodeMirror bind:value={stx} lang={xml()} tabSize={4} styles={{"&":{border:"1px solid #aaa"}}}/></div>
+    <div class="column">
+        <CodeMirror bind:value={stx} lang={xml()} tabSize={4} styles={{"&":{"border":"1px solid #aaa","max-height":"30em"}}}/>
+    </div>
     <div class="column"><SpaTeXt {stx}/></div>
 </div>
 
