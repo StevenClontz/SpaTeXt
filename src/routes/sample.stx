@@ -3,12 +3,56 @@
     <title>A sample SpaTeXt document</title>
     <division>
         <title>My first chapter</title>
+        <content>
+            <knowl mode="exercise">
+                <title>Quick sample exercise...</title>
+                <content>
+                    <p>
+How much wood could a woodchuck chuck in two hours if a woodchuck could chuck wood at
+a rate of <m>48</m> logs per day?
+                    </p>
+                </content>
+                <outtro>
+                    <p>
+                        <me>
+\frac{48\text{ logs}}{1\text{ day}}
+\times
+\frac{1\text{ day}}{24\text{ hours}}
+\times
+2\text{ hours}
+=
+4\text{ logs}
+                        </me>
+                    </p>
+                </outtro>
+            </knowl>
+            <knowl mode="lemma">
+                <title>And a lemma</title>
+                <content>
+                    <p>
+If <m>a,b</m> are the leg lengths of a right triangle, and <m>c</m> is
+the length of its hypotenuse, then <me>a^2+b^2=c^2.</me>
+                    </p>
+                </content>
+                <outtro>
+                    <p>
+Because I said so.
+                    </p>
+                </outtro>
+            </knowl>
+        </content>
     </division>
-    <division/>
-    <division/>
     <division>
-        <title>Another chapter</title>
-        <division number="LE"/>
+        <title>One more</title>
+    </division>
+    <division>
+        <title>And another</title>
+    </division>
+    <division>
+        <title>Yet another chapter</title>
+        <division number="LE">
+            <content><p>Not much here</p></content>
+        </division>
         <division number="EV">
             <title>My second section</title>
             <intro><p>About to start a subsection</p></intro>
@@ -93,7 +137,8 @@ Hey let's try an image. <image remote="https://via.placeholder.com" source="150x
             </division>
         </division>
         <division number="AT">
-            <title>My second section</title>
+            <title>Okay one more section</title>
+            <content><p>Again, <em>pretty short</em>.</p></content>
         </division>
     </division>
     <division >

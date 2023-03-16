@@ -3,13 +3,22 @@
     import { CheerioApi } from '../stores'
     import P from './P.svelte'
     import List from './List.svelte'
+    import { label } from './outtro'
     export let element:Cheerio.Element
+    import Collapser from '../Collapser.svelte'
+    export let collapsed=true
 </script>
 
 {#each $CheerioApi(element).children() as child}
-    {#if child.tagName === "p"}
-        <P element={child}/>
-    {:else if child.tagName === "list"}
-        <List element={child}/>
+    <Collapser 
+        bind:collapsed 
+        collapseLabel="Hide {label(element,$CheerioApi)}" 
+        expandLabel="Show {label(element,$CheerioApi)}"/>
+    {#if !collapsed}
+        {#if child.tagName === "p"}
+            <P element={child}/>
+        {:else if child.tagName === "list"}
+            <List element={child}/>
+        {/if}
     {/if}
 {/each}
