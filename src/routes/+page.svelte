@@ -16,8 +16,8 @@
 <h3 style="color:#444">Simplified PreTeXt for Apps <small>— <a href="https://github.com/StevenClontz/SpaTeXt">GitHub</a></small></h3>
 <p>
     Choose sample:
-    <a href="." on:click={_=>stx=sampleStxShort}>Short</a>
-    <a href="." on:click={_=>stx=sampleStxLong}>Long</a>
+    <a href="./" on:click|preventDefault={_=>stx=sampleStxShort}>Short</a>
+    <a href="./" on:click|preventDefault={_=>stx=sampleStxLong}>Long</a>
 </p>
 
 <div class="flex-container">
