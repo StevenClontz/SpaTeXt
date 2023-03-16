@@ -5,16 +5,16 @@
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_page.a48b5aa4.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.7980de12.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.29c3ced8.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.fd8f68da.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.94204e0e.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.254b6f6e.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/layout.svelte.5b7e5e7a.js">
+		<link href="./_app/immutable/assets/_page.6331450e.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.331fa141.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.4089de87.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.08127a9f.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.022fd3ac.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.faac361d.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/layout.svelte.dee08e0b.js">
 		<link rel="modulepreload" href="./_app/immutable/entry/_layout.ts.984db11e.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/_layout.da46b06b.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/_page.svelte.9c818bd7.js"><title>SpaTeXt Demo</title><!-- HEAD_svelte-1fg7ctc_START --><!-- HEAD_svelte-1fg7ctc_END -->
+		<link rel="modulepreload" href="./_app/immutable/entry/_page.svelte.ab7a2be7.js"><title>SpaTeXt Demo</title><!-- HEAD_svelte-1fg7ctc_START --><!-- HEAD_svelte-1fg7ctc_END -->
 	</head>
 	<body>
 		<div>
@@ -22,232 +22,59 @@
 
 
 
-<h1>SpaTeXt 0.3.0-beta.20230313</h1>
+<h1>SpaTeXt 0.3.0-beta.20230316</h1>
 <h3 style="color:#444">Simplified PreTeXt for Apps <small>— <a href="https://github.com/StevenClontz/SpaTeXt">GitHub</a></small></h3>
+<p>Choose sample:
+    <a href=".">Short</a>
+    <a href=".">Long</a></p>
 
 <div class="flex-container svelte-1elbvs0"><div class="column svelte-1elbvs0"><div class="scm-waiting  svelte-kcx0g9"><div class="scm-waiting__loading scm-loading svelte-kcx0g9"><div class="scm-loading__spinner svelte-kcx0g9"></div>
             <p class="scm-loading__text svelte-kcx0g9">Loading editor...</p></div>
 
         <pre class="scm-pre cm-editor svelte-kcx0g9">&lt;?xml version="1.0"?>
 &lt;spatext xmlns="https://spatext.clontz.org" version="0.3">
-    &lt;title>A sample SpaTeXt document&lt;/title>
-    &lt;division>
-        &lt;title>My first chapter&lt;/title>
-    &lt;/division>
-    &lt;division/>
-    &lt;division/>
-    &lt;division>
-        &lt;title>Another chapter&lt;/title>
-        &lt;division number="LE"/>
-        &lt;division number="EV">
-            &lt;title>My second section&lt;/title>
-            &lt;intro>&lt;p>About to start a subsection&lt;/p>&lt;/intro>
-            &lt;division>
-                &lt;title>My first subsection&lt;/title>
-            &lt;/division>
-            &lt;division/>
-            &lt;division>
-                &lt;title>Another subsection&lt;/title>
-                &lt;content>
-                    &lt;p>Showing off a couple knowls...&lt;/p>
-                    &lt;knowl/>
-                    &lt;knowl mode="definition"/>
-                    &lt;knowl/>
-                    &lt;knowl mode="theorem" label="My Big Fat Important Theorem"/>
-                    &lt;knowl mode="exercise">
-                        &lt;title>An example &lt;c>&amp;lt;knowl&amp;gt;&lt;/c>&lt;/title>
-                        &lt;intro>
-                            &lt;p>So here's a few parts.&lt;/p>
-                        &lt;/intro>
-                        &lt;knowl/>
-                        &lt;knowl>
-                            &lt;intro>&lt;p>Some sub-knowls.&lt;/p>&lt;/intro>
-                            &lt;knowl>
-                                &lt;content>
-                                    &lt;p>Some inline math &lt;m>x^2+y^2=z^2&lt;/m>.&lt;/p>
-                                    &lt;p>Some display math &lt;m mode="display">\sum_{k=0}^n k=\frac{n(n+1)}{2}&lt;/m>&lt;/p>
-                                    &lt;p>
-Hey check out &lt;url href="https://checkit.clontz.org">&lt;em>CheckIt&lt;/em>&lt;/url>.
-It's at &lt;url href="https://checkit.clontz.org"/>.
-                                    &lt;/p>
-                                &lt;/content>
-                                &lt;outtro>
-                                    &lt;p>I guess an answer &lt;em>should&lt;/em> go here.&lt;/p>
-                                &lt;/outtro>
-                            &lt;/knowl>
-                            &lt;knowl>
-                                &lt;content>
-                                    &lt;p>And now a list.&lt;/p>
-                                    &lt;list mode="ordered">
-                                        &lt;item>&lt;p>First thing.&lt;/p>&lt;/item>
-                                        &lt;item>&lt;p>Second thing.&lt;/p>&lt;/item>
-                                        &lt;item>
-                                            &lt;p>Something with a sublist.&lt;/p>
-                                            &lt;list>
-                                                &lt;item>&lt;p>hi&lt;/p>&lt;/item>
-                                                &lt;item>&lt;p>mom&lt;/p>&lt;/item>
-                                            &lt;/list>
-                                        &lt;/item>
-                                        &lt;item>&lt;p>&lt;m>4^{th}&lt;/m> thing.&lt;/p>&lt;/item>
-                                        &lt;item>&lt;p>Last thing.&lt;/p>&lt;/item>
-                                    &lt;/list>
-                                &lt;/content>
-                                &lt;outtro>
-                                    &lt;p>Another answer.&lt;/p>
-                                &lt;/outtro>
-                            &lt;/knowl>
-                            &lt;outtro>
-                                &lt;p>The grand conclusion.&lt;/p>
-                            &lt;/outtro>
-                        &lt;/knowl>
-                        &lt;knowl>
-                            &lt;content>
-                                &lt;p>
-Hey let's try an image. &lt;image remote="https://via.placeholder.com" source="150x100"/>
-                                &lt;/p>
-                            &lt;/content>
-                            &lt;outtro>
-                                &lt;p>And finally... the end!&lt;/p>
-                            &lt;/outtro>
-                        &lt;/knowl>
-                    &lt;/knowl>
-                    &lt;knowl>
-                        &lt;content>
-                            &lt;p>A short one.&lt;/p>
-                        &lt;/content>
-                        &lt;outtro>
-                            &lt;p>Shorter conclusion.&lt;/p>
-                        &lt;/outtro>
-                    &lt;/knowl>
-                &lt;/content>
-            &lt;/division>
-        &lt;/division>
-        &lt;division number="AT">
-            &lt;title>My second section&lt;/title>
-        &lt;/division>
-    &lt;/division>
-    &lt;division >
-        &lt;title>My penultimate chapter&lt;/title>
-    &lt;/division>
-    &lt;division>
-        &lt;title>My last chapter&lt;/title>
-    &lt;/division>
+    &lt;knowl mode="exercise">
+        &lt;title>Quick sample exercise...&lt;/title>
+        &lt;content>
+            &lt;p>
+How much wood could a woodchuck chuck in two hours if a woodchuck could chuck wood at
+a rate of &lt;m>48&lt;/m> logs per day?
+            &lt;/p>
+        &lt;/content>
+        &lt;outtro>
+            &lt;p>
+                &lt;me>
+\frac{48\text{ logs}}{1\text{ day}}
+\times
+\frac{1\text{ day}}{24\text{ hours}}
+\times
+2\text{ hours}
+=
+4\text{ logs}
+                &lt;/me>
+            &lt;/p>
+        &lt;/outtro>
+    &lt;/knowl>
 &lt;/spatext></pre></div></div>
-    <div class="column svelte-1elbvs0"><h1 style="text-align:center;font-size:2.5em">A sample SpaTeXt document</h1>
-<div><h1>Chapter
+    <div class="column svelte-1elbvs0">
+<div><h3>Exercise
                 1:
-                My first chapter.</h1>
-    <div>
-        
-        </div></div><div><h1>Chapter
-                2.</h1>
-    <div>
-        
-        </div></div><div><h1>Chapter
-                3.</h1>
-    <div>
-        
-        </div></div><div><h1>Chapter
-                4:
-                Another chapter.</h1>
-    <div>
-        <div><h2>Section
-                4.LE.</h2>
-    <div>
-        
-        </div></div><div><h2>Section
-                4.EV:
-                My second section.</h2>
-    <div><p>About to start a subsection</p>
-        <div><h2>Subsection
-                4.EV.1:
-                My first subsection.</h2>
-    <div>
-        
-        </div></div><div><h2>Subsection
-                4.EV.2.</h2>
-    <div>
-        
-        </div></div><div><h2>Subsection
-                4.EV.3:
-                Another subsection.</h2>
-    <div>
-        <div><p>Showing off a couple knowls...</p><div><h3>Knowl
-                4.EV.3.1.</h3>
-    <div style="margin-left:3em">
-        
-        </div></div><div><h3>Definition
-                4.EV.3.2.</h3>
-    <div style="margin-left:3em">
-        
-        </div></div><div><h3>Knowl
-                4.EV.3.3.</h3>
-    <div style="margin-left:3em">
-        
-        </div></div><div><h3>My Big Fat Important Theorem
-                4.EV.3.4.</h3>
-    <div style="margin-left:3em">
-        
-        </div></div><div><h3>Exercise
-                4.EV.3.5:
-                An example <code>&lt;knowl></code>.</h3>
-    <div style="margin-left:3em"><p>So here's a few parts.</p>
-        <div><h4>Task
-                4.EV.3.5.1.</h4>
-    <div style="margin-left:3em">
-        
-        </div></div><div><h4>Task
-                4.EV.3.5.2.</h4>
-    <div style="margin-left:3em"><p>Some sub-knowls.</p>
-        <div><h4>Task
-                4.EV.3.5.2.1.</h4>
-    <div style="margin-left:3em">
-        <div><p>Some inline math <!-- HTML_TAG_START --><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><msup><mi>z</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">x^2+y^2=z^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0085em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><!-- HTML_TAG_END -->.</p><p>Some display math <!-- HTML_TAG_START --><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><mi>k</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\sum_{k=0}^n k=\frac{n(n+1)}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.9535em;vertical-align:-1.3021em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8479em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3021em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.113em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span><!-- HTML_TAG_END --></p><p>
-Hey check out <a href="https://checkit.clontz.org"><em>CheckIt</em></a>.
-It's at <a href="https://checkit.clontz.org">https://checkit.clontz.org</a>.
-                                    </p></div>
-        <p>I guess an answer <em>should</em> go here.</p></div></div><div><h4>Task
-                4.EV.3.5.2.2.</h4>
-    <div style="margin-left:3em">
-        <div><p>And now a list.</p><ol><li><p>First thing.</p></li><li><p>Second thing.</p></li><li><p>Something with a sublist.</p><ul><li><p>hi</p></li><li><p>mom</p></li></ul></li><li><p><!-- HTML_TAG_START --><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>4</mn><mrow><mi>t</mi><mi>h</mi></mrow></msup></mrow><annotation encoding="application/x-tex">4^{th}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord">4</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span></span><!-- HTML_TAG_END --> thing.</p></li><li><p>Last thing.</p></li></ol></div>
-        <p>Another answer.</p></div></div>
-        <p>The grand conclusion.</p></div></div><div><h4>Task
-                4.EV.3.5.3.</h4>
+                Quick sample exercise....</h3>
     <div style="margin-left:3em">
         <div><p>
-Hey let's try an image. <img style="max-width:100%" src="https://via.placeholder.com/150x100">
-                                </p></div>
-        <p>And finally... the end!</p></div></div>
-        </div></div><div><h3>Knowl
-                4.EV.3.6.</h3>
-    <div style="margin-left:3em">
-        <div><p>A short one.</p></div>
-        <p>Shorter conclusion.</p></div></div></div>
-        </div></div>
-        </div></div><div><h2>Section
-                4.AT:
-                My second section.</h2>
-    <div>
-        
-        </div></div>
-        </div></div><div><h1>Chapter
-                5:
-                My penultimate chapter.</h1>
-    <div>
-        
-        </div></div><div><h1>Chapter
-                6:
-                My last chapter.</h1>
-    <div>
-        
-        </div></div></div>
+How much wood could a woodchuck chuck in two hours if a woodchuck could chuck wood at
+a rate of <!-- HTML_TAG_START --><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>48</mn></mrow><annotation encoding="application/x-tex">48</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">48</span></span></span></span><!-- HTML_TAG_END --> logs per day?
+            </p></div>
+        <a class="toggle svelte-19ww3re" href=".">▸Show Solution
+</a>
+    </div></div></div>
 </div>
 
 
 			
 			<script>
 				{
-					__sveltekit_1g0jo7w = {
+					__sveltekit_1wr55z1 = {
 						env: {},
 						base: new URL(".", location).pathname.slice(0, -1),
 						element: document.currentScript.parentElement
@@ -256,10 +83,10 @@ Hey let's try an image. <img style="max-width:100%" src="https://via.placeholder
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.7980de12.js"),
-						import("./_app/immutable/entry/app.254b6f6e.js")
+						import("./_app/immutable/entry/start.331fa141.js"),
+						import("./_app/immutable/entry/app.faac361d.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_1g0jo7w.element, {
+						kit.start(app, __sveltekit_1wr55z1.element, {
 							node_ids: [0, 2],
 							data,
 							form: null,
