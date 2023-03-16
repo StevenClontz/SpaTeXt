@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<spatext xmlns="https://spatext.clontz.org" version="0.3">
+    <knowl mode="exercise">
+        <title>Quick sample exercise...</title>
+        <content>
+            <p>
+How much wood could a woodchuck chuck in two hours if a woodchuck could chuck wood at
+a rate of <m>48</m> logs per day?
+            </p>
+        </content>
+        <outtro>
+            <p>
+                <me>
+\frac{48\text{ logs}}{1\text{ day}}
+\times
+\frac{1\text{ day}}{24\text{ hours}}
+\times
+2\text{ hours}
+=
+4\text{ logs}
+                </me>
+            </p>
+        </outtro>
+    </knowl>
+</spatext>
