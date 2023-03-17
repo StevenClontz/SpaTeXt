@@ -10,16 +10,6 @@
     import Xref from './Xref.svelte'
     export let element:Cheerio.Element
     export let xrefId:string|undefined = undefined
-    function handleXrefMessage(xref:Cheerio.AnyNode) {
-        if (xrefId === undefined) {
-            if (xref as Cheerio.Element) {
-                xrefId = $CheerioApi(xref).attr("ref")
-                console.log(xrefId)
-            }
-        } else {
-            xrefId = undefined
-        }
-    }
 </script>
 
 {#each $CheerioApi(element).contents() as child}
@@ -38,6 +28,6 @@
     {:else if child.tagName === "url"}
         <Url element={child}/>
     {:else if child.tagName === "xref"}
-        <Xref element={child} on:message={_=>handleXrefMessage(child)}/>
+        <Xref element={child} bind:openXrefId={xrefId}/>
     {/if}
 {/each}
