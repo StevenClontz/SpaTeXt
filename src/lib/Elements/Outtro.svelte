@@ -9,13 +9,15 @@
     export let collapsed=true
 </script>
 
-{#each $CheerioApi(element).children() as child}
+{#if $CheerioApi(element).children().length > 0}
     <p>
         <Collapser 
             bind:collapsed 
             collapseLabel="Hide {label(element,$CheerioApi)}" 
             expandLabel="Show {label(element,$CheerioApi)}"/>
     </p>
+{/if}
+{#each $CheerioApi(element).children() as child}
     {#if !collapsed}
         {#if child.tagName === "p"}
             <P element={child}/>

@@ -10,6 +10,9 @@ a rate of <m>48</m> logs per day?
         </content>
         <outtro>
             <p>
+The solution can be found using dimensional analysis.
+            </p>
+            <p>
                 <me>
 \frac{48\text{ logs}}{1\text{ day}}
 \times
