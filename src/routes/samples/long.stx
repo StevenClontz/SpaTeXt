@@ -45,8 +45,13 @@ Because I said so.
     <division>
         <title>One more</title>
         <content>
-            <p>Hey, remember <xref ref="quick-sample"/>? Good times.</p>
-            <p>Later you'll see <xref ref="quick"/>.</p>
+            <p>
+                Hey, remember <xref ref="quick-sample"/>? Good times.
+                Later you'll see <xref ref="quick-sample2"/>.
+            </p>
+            <p>
+                Okay, <xref ref="one-more"/>.
+            </p>
         </content>
     </division>
     <division>
@@ -71,7 +76,10 @@ Because I said so.
                     <knowl/>
                     <knowl mode="definition"/>
                     <knowl/>
-                    <knowl mode="theorem" label="My Big Fat Important Theorem"/>
+                    <knowl 
+                        mode="theorem" 
+                        label="My Big Fat Important Theorem"
+                        id="one-more"/>
                     <knowl mode="exercise">
                         <title>An example <c>&lt;knowl&gt;</c></title>
                         <intro>
@@ -129,7 +137,7 @@ Hey let's try an image. <image remote="https://via.placeholder.com" source="150x
                             </outtro>
                         </knowl>
                     </knowl>
-                    <knowl id="quick">
+                    <knowl id="quick-sample2">
                         <content>
                             <p>A short one.</p>
                         </content>
