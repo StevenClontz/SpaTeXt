@@ -8,13 +8,13 @@
     }
 </script>
 
-<a class="toggle" href="." on:keypress={toggleCollapsed} on:click={toggleCollapsed}>
+<button class="toggle" on:keypress={toggleCollapsed} on:click={toggleCollapsed}>
     {#if collapsed}▸{expandLabel}{:else}▾{collapseLabel}{/if}
-</a>
+</button>
 
 <style>
-    a.toggle {
-        color:#888;
+    .toggle {
+        color:#444;
         text-decoration: none;
         font-size: 0.8rem;
         font-weight: normal;

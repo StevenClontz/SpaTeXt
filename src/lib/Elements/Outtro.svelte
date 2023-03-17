@@ -10,10 +10,12 @@
 </script>
 
 {#each $CheerioApi(element).children() as child}
-    <Collapser 
-        bind:collapsed 
-        collapseLabel="Hide {label(element,$CheerioApi)}" 
-        expandLabel="Show {label(element,$CheerioApi)}"/>
+    <p>
+        <Collapser 
+            bind:collapsed 
+            collapseLabel="Hide {label(element,$CheerioApi)}" 
+            expandLabel="Show {label(element,$CheerioApi)}"/>
+    </p>
     {#if !collapsed}
         {#if child.tagName === "p"}
             <P element={child}/>
