@@ -46,6 +46,7 @@ Because I said so.
         <title>One more</title>
         <content>
             <p>Hey, remember <xref ref="quick-sample"/>? Good times.</p>
+            <p>Later you'll see <xref ref="quick"/>.</p>
         </content>
     </division>
     <division>
@@ -128,7 +129,7 @@ Hey let's try an image. <image remote="https://via.placeholder.com" source="150x
                             </outtro>
                         </knowl>
                     </knowl>
-                    <knowl>
+                    <knowl id="quick">
                         <content>
                             <p>A short one.</p>
                         </content>
