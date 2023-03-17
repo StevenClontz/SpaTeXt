@@ -7,7 +7,19 @@
     import M from './M.svelte'
     import Q from './Q.svelte'
     import Url from './Url.svelte'
+    import Xref from './Xref.svelte'
     export let element:Cheerio.Element
+    export let xrefId:string|undefined = undefined
+    function handleXrefMessage(xref:Cheerio.AnyNode) {
+        if (xrefId === undefined) {
+            if (xref as Cheerio.Element) {
+                xrefId = $CheerioApi(xref).attr("ref")
+                console.log(xrefId)
+            }
+        } else {
+            xrefId = undefined
+        }
+    }
 </script>
 
 {#each $CheerioApi(element).contents() as child}
@@ -25,5 +37,7 @@
         <Image element={child}/>
     {:else if child.tagName === "url"}
         <Url element={child}/>
+    {:else if child.tagName === "xref"}
+        <Xref element={child} on:message={_=>handleXrefMessage(child)}/>
     {/if}
 {/each}
