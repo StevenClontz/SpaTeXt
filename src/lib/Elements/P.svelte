@@ -22,7 +22,15 @@
     <Children bind:xrefId={xrefId} {element}/>
 </p>
 {#if xrefElement !== undefined}
-    <div>
+    <div class="xref-result">
         <Knowl element={xrefElement}/>
     </div>
 {/if}
+
+<style>
+    .xref-result {
+        margin: 0 2em;
+        padding: 0 1em;
+        border: 1px solid #888;
+    }
+</style>
