@@ -4,7 +4,7 @@
     <division>
         <title>My first chapter</title>
         <content>
-            <knowl mode="exercise">
+            <knowl mode="exercise" id="quick-sample">
                 <title>Quick sample exercise...</title>
                 <content>
                     <p>
@@ -44,6 +44,9 @@ Because I said so.
     </division>
     <division>
         <title>One more</title>
+        <content>
+            <p>Hey, remember <xref ref="quick-sample"/>? Good times.</p>
+        </content>
     </division>
     <division>
         <title>And another</title>
