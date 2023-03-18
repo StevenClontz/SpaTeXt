@@ -1,8 +1,9 @@
 <script lang="ts">
     import CodeMirror from "svelte-codemirror-editor"
-    import { xml } from "@codemirror/lang-xml";
+    import { xml } from "@codemirror/lang-xml"
+    import conf from "../lib/CodeMirror"
     export let value:string
-    const styles={
+    const styles = {
         "&": {
             "border":"1px solid #aaa",
             "max-height":"30em"
@@ -12,6 +13,6 @@
 
 <CodeMirror 
     bind:value={value} 
-    lang={xml()} 
+    lang={xml(conf)}
     tabSize={4} 
     {styles}/>

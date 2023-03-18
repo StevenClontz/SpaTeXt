@@ -20,6 +20,7 @@
     Choose sample:
     <button on:click|preventDefault={_=>stx=sampleStxShort}>Short</button>
     <button on:click|preventDefault={_=>stx=sampleStxLong}>Long</button>
+    <button on:click|preventDefault={_=>stx=`<?xml version="1.0"?>\n`}>Empty</button>
 </p>
 
 <div class="flex-container">
@@ -29,14 +30,14 @@
 
 <style>
     h3{ color:#444 }
-    .flex-container{
+    .flex-container {
         width: 100%;
         min-height: 300px;
         margin: 0 auto;
         display: -webkit-flex; /* Safari */		
         display: flex; /* Standard syntax */
     }
-    .flex-container .column{
+    .flex-container .column {
         width: 50%;
         padding: 10px;
         -webkit-flex: 1; /* Safari */
