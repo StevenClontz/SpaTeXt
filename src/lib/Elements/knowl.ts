@@ -15,35 +15,6 @@ export const mode = (element: Cheerio.Element, api: Cheerio.CheerioAPI): string 
 	return 'knowl';
 };
 
-export const label = (element: Cheerio.Element, api: Cheerio.CheerioAPI): string => {
-	if (api(element).attr('label')) {
-		return api(element).attr('label') as string;
-	}
-	if (depth(element, api) === 0) {
-		if (mode(element, api) === 'exercise') {
-			return 'Exercise';
-		} else if (mode(element, api) === 'activity') {
-			return 'Activity';
-		} else if (mode(element, api) === 'theorem') {
-			return 'Theorem';
-		} else if (mode(element, api) === 'lemma') {
-			return 'Lemma';
-		} else if (mode(element, api) === 'conjecture') {
-			return 'Conjecture';
-		} else if (mode(element, api) === 'definition') {
-			return 'Definition';
-		} else {
-			return 'Knowl';
-		}
-	} else {
-		if (['exercise', 'activity'].includes(mode(element, api))) {
-			return 'Task';
-		} else {
-			return 'Part';
-		}
-	}
-};
-
 export const numbering = (element: Cheerio.Element, api: Cheerio.CheerioAPI): string => {
 	let index = `${api(element).prevAll('knowl').length + 1}`;
 	if (api(element).attr('number')) {
@@ -58,5 +29,34 @@ export const numbering = (element: Cheerio.Element, api: Cheerio.CheerioAPI): st
 		return (
 			divisionNumbering(api(element).closest('division')[0] as Cheerio.Element, api) + `.${index}`
 		);
+	}
+};
+
+export const label = (element: Cheerio.Element, api: Cheerio.CheerioAPI): string => {
+	if (api(element).attr('label')) {
+		return `${api(element).attr('label')} ${numbering(element, api)}`;
+	}
+	if (depth(element, api) === 0) {
+		if (mode(element, api) === 'exercise') {
+			return `Exercise ${numbering(element, api)}`;
+		} else if (mode(element, api) === 'activity') {
+			return `Activity ${numbering(element, api)}`;
+		} else if (mode(element, api) === 'theorem') {
+			return `Theorem ${numbering(element, api)}`;
+		} else if (mode(element, api) === 'lemma') {
+			return `Lemma ${numbering(element, api)}`;
+		} else if (mode(element, api) === 'conjecture') {
+			return `Conjecture ${numbering(element, api)}`;
+		} else if (mode(element, api) === 'definition') {
+			return `Definition ${numbering(element, api)}`;
+		} else {
+			return `Knowl ${numbering(element, api)}`;
+		}
+	} else {
+		if (['exercise', 'activity'].includes(mode(element, api))) {
+			return `Task ${numbering(element, api)}`;
+		} else {
+			return `Part ${numbering(element, api)}`;
+		}
 	}
 };

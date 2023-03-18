@@ -7,10 +7,8 @@
 </script>
 
 {#each $CheerioApi(element).children('title:first') as title}
-	{label(element, $CheerioApi)}
-	{numbering(element, $CheerioApi)}:
+	{label(element, $CheerioApi)}:
 	<Parse element={title} />.
 {:else}
-	{label(element, $CheerioApi)}
-	{numbering(element, $CheerioApi)}.
+	{label(element, $CheerioApi)}.
 {/each}
