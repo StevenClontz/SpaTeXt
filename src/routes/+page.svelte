@@ -18,9 +18,9 @@
 </h3>
 <p>
 	Choose sample:
-	<button on:click|preventDefault={(_) => (stx = sampleStxShort)}>Short</button>
-	<button on:click|preventDefault={(_) => (stx = sampleStxLong)}>Long</button>
-	<button on:click|preventDefault={(_) => (stx = `<?xml version="1.0"?>\n`)}>Empty</button>
+	<button on:click={(_) => (stx = sampleStxShort)}>Short</button>
+	<button on:click={(_) => (stx = sampleStxLong)}>Long</button>
+	<button on:click={(_) => (stx = `<?xml version="1.0"?>\n`)}>Empty</button>
 </p>
 
 <div class="flex-container">
