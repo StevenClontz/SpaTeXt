@@ -1,17 +1,15 @@
-import type { ElementSpec, AttrSpec } from '@codemirror/lang-xml'
-import PSpec from './p'
+import type { ElementSpec, AttrSpec } from '@codemirror/lang-xml';
+import PSpec from './p';
 
-export const hrefSpec:AttrSpec = {
-    name: "href",
-}
+export const hrefSpec: AttrSpec = {
+	name: 'href'
+};
 
-const UrlSpec:ElementSpec = {
-    name: "url",
-    top: false,
-    children: PSpec.children,
-    attributes: [
-        hrefSpec,
-    ],
-}
+const UrlSpec: ElementSpec = {
+	name: 'url',
+	top: false,
+	children: PSpec.children,
+	attributes: [hrefSpec]
+};
 
-export default UrlSpec
+export default UrlSpec;

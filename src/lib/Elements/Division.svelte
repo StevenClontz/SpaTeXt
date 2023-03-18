@@ -3,7 +3,7 @@
 	import { CheerioApi } from '../stores';
 	import { depth } from './division';
 	import Content from './Content.svelte';
-    import Title from './Division.title.svelte'
+	import Title from './Division.title.svelte';
 	import Parse from '../Parse.svelte';
 	export let element: Cheerio.Element;
 	export let collapsed = true;
@@ -11,9 +11,9 @@
 
 <div>
 	{#if depth(element, $CheerioApi) === 0}
-		<h1><Title {element} bind:collapsed/></h1>
+		<h1><Title {element} bind:collapsed /></h1>
 	{:else}
-        <h2><Title {element} bind:collapsed/></h2>
+		<h2><Title {element} bind:collapsed /></h2>
 	{/if}
 	{#if !collapsed}
 		<div class="subdivision">

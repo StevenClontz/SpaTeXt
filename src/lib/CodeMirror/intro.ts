@@ -1,13 +1,10 @@
-import type { ElementSpec } from '@codemirror/lang-xml'
+import type { ElementSpec } from '@codemirror/lang-xml';
 
-const IntroSpec:ElementSpec = {
-    name: "intro",
-    top: false,
-    children: [
-        "p",
-        "list",
-    ],
-    attributes: [],
-}
+const IntroSpec: ElementSpec = {
+	name: 'intro',
+	top: false,
+	children: ['p', 'list'],
+	attributes: []
+};
 
-export default IntroSpec
+export default IntroSpec;

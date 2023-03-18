@@ -1,13 +1,10 @@
-import type { ElementSpec } from '@codemirror/lang-xml'
+import type { ElementSpec } from '@codemirror/lang-xml';
 
-export const TitleSpec:ElementSpec = {
-    name: "title",
-    top: false,
-    children: [
-        "c",
-        "m",
-    ],
-    attributes: [],
-}
+export const TitleSpec: ElementSpec = {
+	name: 'title',
+	top: false,
+	children: ['c', 'm'],
+	attributes: []
+};
 
-export default TitleSpec
+export default TitleSpec;

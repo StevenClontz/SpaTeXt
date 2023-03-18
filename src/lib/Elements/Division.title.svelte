@@ -16,9 +16,6 @@
 	{label(element, $CheerioApi)}
 	{numbering(element, $CheerioApi)}.
 {/each}
-{#if $CheerioApi(element).find('content').length > 0 ||
-	$CheerioApi(element).find('division').length > 0 ||
-	$CheerioApi(element).find('intro').length > 0 ||
-	$CheerioApi(element).find('outtro').length > 0}
+{#if $CheerioApi(element).find('content').length > 0 || $CheerioApi(element).find('division').length > 0 || $CheerioApi(element).find('intro').length > 0 || $CheerioApi(element).find('outtro').length > 0}
 	<Collapser bind:collapsed />
 {/if}

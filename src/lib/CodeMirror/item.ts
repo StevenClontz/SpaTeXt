@@ -1,13 +1,10 @@
-import type { ElementSpec } from '@codemirror/lang-xml'
+import type { ElementSpec } from '@codemirror/lang-xml';
 
-const ItemSpec:ElementSpec = {
-    name: "item",
-    top: false,
-    children: [
-        "p",
-        "list",
-    ],
-    attributes: [],
-}
+const ItemSpec: ElementSpec = {
+	name: 'item',
+	top: false,
+	children: ['p', 'list'],
+	attributes: []
+};
 
-export default ItemSpec
+export default ItemSpec;
