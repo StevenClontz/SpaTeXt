@@ -2,8 +2,7 @@
     import SpaTeXt from '../lib'
     import sampleStxShort from './samples/short.stx?raw'
     import sampleStxLong from './samples/long.stx?raw'
-    import CodeMirror from "svelte-codemirror-editor"
-    import { xml } from "@codemirror/lang-xml";
+    import CodeMirror from "./CodeMirror.svelte"
     let stx = sampleStxShort
     const version = __VERSION__
 </script>
@@ -13,21 +12,23 @@
 </svelte:head>
 
 <h1>SpaTeXt {version}</h1>
-<h3 style="color:#444">Simplified PreTeXt for Apps <small>— <a href="https://github.com/StevenClontz/SpaTeXt">GitHub</a></small></h3>
+<h3>
+    Simplified PreTeXt for Apps 
+    <small>— <a href="https://github.com/StevenClontz/SpaTeXt">GitHub</a></small>
+</h3>
 <p>
     Choose sample:
-    <a href="./" on:click|preventDefault={_=>stx=sampleStxShort}>Short</a>
-    <a href="./" on:click|preventDefault={_=>stx=sampleStxLong}>Long</a>
+    <button on:click|preventDefault={_=>stx=sampleStxShort}>Short</button>
+    <button on:click|preventDefault={_=>stx=sampleStxLong}>Long</button>
 </p>
 
 <div class="flex-container">
-    <div class="column">
-        <CodeMirror bind:value={stx} lang={xml()} tabSize={4} styles={{"&":{"border":"1px solid #aaa","max-height":"30em"}}}/>
-    </div>
+    <div class="column"><CodeMirror bind:value={stx}/></div>
     <div class="column"><SpaTeXt {stx}/></div>
 </div>
 
 <style>
+    h3{ color:#444 }
     .flex-container{
         width: 100%;
         min-height: 300px;
