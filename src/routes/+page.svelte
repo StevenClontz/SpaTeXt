@@ -42,8 +42,14 @@
 	.flex-container .column {
 		width: 50%;
 		padding: 10px;
+		overflow-x: scroll;
 		-webkit-flex: 1; /* Safari */
 		-ms-flex: 1; /* IE 10 */
 		flex: 1; /* Standard syntax */
+		-ms-overflow-style: none;  /* Internet Explorer 10+ */
+		scrollbar-width: none;  /* Firefox */
+	}
+	.flex-container .column::-webkit-scrollbar { 
+		display: none;  /* Safari and Chrome */
 	}
 </style>
