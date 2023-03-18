@@ -52,6 +52,9 @@ Because I said so.
             <p>
                 Okay, <xref ref="one-more"/>.
             </p>
+            <p>
+                Don't forget <xref ref="division-AT"/>.
+            </p>
         </content>
     </division>
     <division>
@@ -148,7 +151,7 @@ Hey let's try an image. <image remote="https://via.placeholder.com" source="150x
                 </content>
             </division>
         </division>
-        <division number="AT">
+        <division number="AT" id="division-AT">
             <title>Okay one more section</title>
             <content><p>Again, <em>pretty short</em>.</p></content>
         </division>
