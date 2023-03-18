@@ -1,19 +1,17 @@
 <script lang="ts">
     import type * as Cheerio from 'cheerio'
-    import P from './P.svelte'
-    import List from './List.svelte'
-    import Knowl from './Knowl.svelte'
+    import Parse from '../Parse.svelte'
     import { CheerioApi } from '../stores'
     export let element:Cheerio.Element
     export let allowKnowls = false
+    const allowable = (e:Cheerio.Element):boolean => {
+        return ["p","list"].includes(e.tagName) || 
+            ( allowKnowls && e.tagName === "knowl" )
+    }
 </script>
 
 {#each $CheerioApi(element).children() as child}
-    {#if child.tagName === "p"}
-        <P element={child}/>
-    {:else if child.tagName === "list"}
-        <List element={child}/>
-    {:else if allowKnowls && child.tagName === "knowl"}
-        <Knowl element={child}/>
+    {#if allowable(child)}
+        <Parse element={child}/>
     {/if}
 {/each}
