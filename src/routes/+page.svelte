@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SpaTeXt from '../lib';
+	import SpaTeXt from '$lib';
 	import sampleStxShort from './samples/short.stx?raw';
 	import sampleStxLong from './samples/long.stx?raw';
 	import CodeMirror from './CodeMirror.svelte';

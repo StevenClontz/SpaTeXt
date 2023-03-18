@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CodeMirror from 'svelte-codemirror-editor';
 	import { xml } from '@codemirror/lang-xml';
-	import conf from '../lib/CodeMirror';
+	import conf from '$lib/CodeMirror';
 	export let value: string;
 	const styles = {
 		'&': {
