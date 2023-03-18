@@ -3,7 +3,7 @@
     import { CheerioApi } from '../stores'
     import Children from './P.children.svelte'
     export let element:Cheerio.Element
-    let href = $CheerioApi(element).attr("href")
+    $: href = $CheerioApi(element).attr("href")
 </script>
 
 <a {href}>

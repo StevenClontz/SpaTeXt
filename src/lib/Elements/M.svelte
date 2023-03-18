@@ -5,7 +5,9 @@
     import 'katex/dist/katex.min.css'
     export let element:Cheerio.Element
     let displayMode:boolean
-    $: if (element.tagName == "me") {
+    $: if ($CheerioApi(element).parent()[0].tagName === "title") {
+        displayMode = false
+    } else if (element.tagName == "me") {
         displayMode = ($CheerioApi(element).attr("mode") !== "inline")
     } else if (element.tagName == "m") {
         displayMode = ($CheerioApi(element).attr("mode") === "display")

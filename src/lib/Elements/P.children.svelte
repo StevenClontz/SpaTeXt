@@ -3,17 +3,10 @@
     import { CheerioApi } from '../stores'
     import Parse from '../Parse.svelte'
     import Xref from './Xref.svelte'
+    import PSpec from '../CodeMirror/p';
     export let element:Cheerio.Element
     export let xrefId:string|undefined = undefined
-    const allowed = [
-        "c",
-        "em",
-        "image",
-        "m",
-        "me",
-        "q",
-        "url"
-    ]
+    const allowed = PSpec.children as string[]
 </script>
 
 {#each $CheerioApi(element).contents() as child}
