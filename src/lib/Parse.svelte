@@ -18,8 +18,6 @@
 
 {#if checkTagName(element,"c")}
     <Elements.C {element}/>
-{:else if checkTagName(element,"content")}
-    <Elements.Content {element}/>
 {:else if checkTagName(element,"division")}
     <Elements.Division {element}/>
 {:else if checkTagName(element,"em")}
@@ -37,7 +35,7 @@
 {:else if checkTagName(element,"m") || checkTagName(element,"me")}
     <Elements.M {element}/>
 {:else if checkTagName(element,"outtro")}
-    <Elements.Intro {element}/>
+    <Elements.Outtro {element}/>
 {:else if checkTagName(element,"p")}
     <Elements.P {element}/>
 {:else if checkTagName(element,"q")}
@@ -46,4 +44,10 @@
     <Elements.Title {element}/>
 {:else if checkTagName(element,"url")}
     <Elements.Url {element}/>
+{:else}
+    <span>(element cannot be parsed)</span>
 {/if}
+
+<style>
+    span { color: red }
+</style>
