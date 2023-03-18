@@ -3,19 +3,11 @@
 	import { CheerioApi } from '../stores';
 	import Children from './P.children.svelte';
 	import Parse from '../Parse.svelte';
+	import { elementLookup } from './xref';
 	export let element: Cheerio.Element;
 	let xrefId: string | undefined = undefined;
 	let xrefElement: Cheerio.Element | undefined;
-	$: if (xrefId !== undefined) {
-		let xrefElements = $CheerioApi(`*[id=${xrefId}]`);
-		if (xrefElements.length > 0) {
-			xrefElement = xrefElements[0] as Cheerio.Element;
-		} else {
-			xrefElement = undefined;
-		}
-	} else {
-		xrefElement = undefined;
-	}
+	$: xrefElement = elementLookup($CheerioApi,xrefId)
 </script>
 
 <p>

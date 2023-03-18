@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type * as Cheerio from 'cheerio';
 	import { CheerioApi } from '../stores';
+	import { labelLookup } from './xref';
 	export let element: Cheerio.Element;
 	export let openXrefId: string | undefined;
 	let ref = $CheerioApi(element).attr('ref');
@@ -14,5 +15,5 @@
 </script>
 
 <button on:click={setXref}>
-	{#if openXrefId === ref}▾{:else}▸{/if}{ref}
+	{#if openXrefId === ref}▾{:else}▸{/if}{labelLookup($CheerioApi,ref)}
 </button>
