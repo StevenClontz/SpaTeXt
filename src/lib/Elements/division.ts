@@ -14,7 +14,7 @@ export const label = (element: Cheerio.Element, api: Cheerio.CheerioAPI): string
 		return 'Section';
 	} else {
 		const subsection = 'sub'.repeat(depth(element, api) - 1) + 'section';
-		return "S" + subsection.slice(1);
+		return 'S' + subsection.slice(1);
 	}
 };
 

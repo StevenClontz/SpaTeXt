@@ -11,8 +11,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:unit": "vitest",
-		"lint": "prettier --plugin-search-dir . --check ./src && eslint ./src",
-		"format": "prettier --plugin-search-dir . --write ./src"
+		"lint": "prettier --plugin-search-dir . --check . --ignore-path .eslintignore && eslint .",
+		"format": "prettier --plugin-search-dir . --write . --ignore-path .eslintignore"
 	},
 	"exports": {
 		".": {
