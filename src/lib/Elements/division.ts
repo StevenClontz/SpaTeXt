@@ -13,8 +13,8 @@ export const label = (element: Cheerio.Element, api: Cheerio.CheerioAPI): string
 	} else if (depth(element, api) === 1) {
 		return 'Section';
 	} else {
-		let subsection = 'sub'.repeat(depth(element, api) - 1) + 'section';
-		return subsection.charAt(0).toUpperCase() + subsection.slice(1);
+		const subsection = 'sub'.repeat(depth(element, api) - 1) + 'section';
+		return "S" + subsection.slice(1);
 	}
 };
 
