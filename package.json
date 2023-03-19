@@ -1,6 +1,6 @@
 {
 	"name": "spatext",
-	"version": "0.3.0-beta.20230319",
+	"version": "0.3.0-dev",
 	"license": "LICENSE.md",
 	"scripts": {
 		"dev": "vite dev",
