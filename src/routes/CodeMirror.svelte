@@ -11,4 +11,4 @@
 	};
 </script>
 
-<CodeMirror bind:value lang={xml(conf)} tabSize={4} {styles} />
+<CodeMirror on:change bind:value lang={xml(conf)} tabSize={4} {styles} />
