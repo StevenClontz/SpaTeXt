@@ -10,7 +10,7 @@
 </script>
 
 <div>
-	{#if depth(element, $CheerioApi) === 0}
+	{#if depth($CheerioApi, element) === 0}
 		<h1><Title {element} bind:collapsed /></h1>
 	{:else}
 		<h2><Title {element} bind:collapsed /></h2>

@@ -23,9 +23,9 @@ export const labelLookup = (api: Cheerio.CheerioAPI, xrefId: string | undefined)
 	if (e === undefined || xrefId === undefined) {
 		return 'Unknown ID';
 	} else if (e.tagName === 'knowl') {
-		return knowlLabel(e, api);
+		return knowlLabel(api, e);
 	} else if (e.tagName === 'division') {
-		return divisionLabel(e, api);
+		return divisionLabel(api, e);
 	} else {
 		return xrefId;
 	}
