@@ -1,3 +1,2 @@
 // Reexport your entry components here
-import Spatext from './Elements/Spatext.svelte';
-export default Spatext;
+export { default } from './Elements/Spatext/component.svelte';
